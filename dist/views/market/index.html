@@ -1,0 +1,644 @@
+<!-- !!!СТИЛИ К ЭЛЕМЕНТАМ ЭТОЙ СТРАНИЦИ ЛЕЖАТ В ПАПКЕ tpl НА УРОВЕНТ ВЫШЕ (там же где и views)!!! -->
+<!DOCTYPE html>
+<html>
+	<head>
+		<!-- META -->
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+		<!-- FAVICON -->
+		<link rel="icon" href="favicon.ico" type="image/x-icon">
+		<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+	
+		<!-- SEO -->
+		<meta name="Description" content="">
+		<meta name="Rating" content="">
+		<meta name="Author" content="">
+		<meta name="Robots" content="index,follow">
+	
+		<!-- CONFIG -->
+		<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	
+		<!-- CSS -->
+		<link rel="stylesheet" href="../../web/css/main.css">
+		<link rel="stylesheet" href="../../web/css/print.css" media="print">
+	
+		<title>One+1</title>
+	</head>
+	<body class="on-load">
+		<!--[if lt IE 10]>
+		<p class="browsehappy">Вы используете <strong>УСТАРЕВШИЙ Internet Explorer</strong> браузер. Пожалуйста, <a href="http://browsehappy.com/">обновите ваш Браузер</a> чтобы увидеть больше возможностей на сайтах!</p>
+		<![endif]-->
+		
+		<!-- Preloader -->
+		<div class="preloader"></div>
+		<div class="popup">
+			<!-- Login Form -->
+			<div class="popup-login">
+				<a href="#" class="popup-login-close b-close">
+					<i class="icon icon-close"></i>
+				</a>
+				<h2>Вход</h2>
+				<ul>
+					<li>
+						<form action="#">
+							<input name="email" type="text" placeholder="E-mail">
+							<input name="password" type="password" placeholder="Пароль">
+							<a href="#">Напомнить пароль</a>
+							<ul>
+								<li><a href="#" class="link">Зарегистрироваться</a></li>
+								<li><a href="#" class="btn js-login">Войти</a></li>
+							</ul>
+						</form>
+					</li>
+					<li class="sep"></li>
+					<li>
+						<a href="#" class="social"><i class="fa fa-vk"></i>В контакте</a>
+						<a href="#" class="social"><i class="fa fa-facebook"></i>Facebook</a>
+					</li>
+				</ul>
+			</div>
+		
+		</div>
+		<!-- Application -->
+		<div class="app market">
+			<header class="header js-header active">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<a href="index.html" class="logo"><img src="../../assets/img/logoBlue.svg"></a>
+							<a href="index.html" class="logo white"><img src="../../assets/img/logo-white.png"></a>
+							<nav class="menu-top">
+								<a href="#" class="burger js-open_menu-top">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+								</a>
+								<ul>
+									<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i>Найти вещь</a></li>
+									<li><a href="#"><i class="fa fa-plus" aria-hidden="true"></i>Продать</a></li>
+									<li><a href="#" class="js-popupButton">Войти</a></li>
+									<li class="drop-down">
+										<a href="#" class="js-dropDown">
+											<span></span>
+											<span></span>
+											<span></span>
+										</a>
+										<ul>
+											<li><a href="#">О проекте</a></li>
+											<li><a href="#">Фонды</a></li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+							
+						</div>
+					</div>
+				</div>
+			</header>
+
+			<!-- Filter -->
+			<section class="wr bg-dark">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="filter-catalog">
+								<ul class="filter-catalog-category">
+									<li>
+										<input type="checkbox" id="private-ads">
+										<label for="private-ads">Частные объявления</label>
+									</li>
+
+									<li>
+										<input type="checkbox" id="from-shop">
+										<label for="from-shop">От магазинов</label>
+									</li>
+									<li>
+										<input type="checkbox" id="auction">
+										<label for="auction">Аукционы</label>
+									</li>
+									<li>
+										<input type="checkbox" id="stars">
+										<label for="stars">От звезд</label>
+									</li>
+								</ul>
+
+								<div class="select-catalog">
+									<a href="#" class="js-selectToogle">В москве<i></i></a>
+									<div class="js-selectLists">
+										<ul>
+											<li><a href="#">Личные вещи</a></li>
+											<li><a href="#">Электроника</a></li>
+											<li><a href="#">Спорт</a></li>
+											<li><a href="#">Дом и дача</a></li>
+											<li><a href="#">Детям</a></li>
+											<li><a href="#">Бизнесу</a></li>
+										</ul>
+									</div>
+								</div>
+
+								 <button class="reset">Сбросить все параметры</button>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="wr base border-b">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="filter-catalog">
+								<form class="filter-catalog-search">
+									<input type="search" placeholder="Найти вещь">
+									<button type="submit" class="btn"><i class="fa fa-search" aria-hidden="true"></i> Искать</button>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="wr base border-b">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="filter-catalog">
+								<div class="filter-catalog-range">
+									<div>
+										<div class="select-catalog">
+											<a href="#" class="js-selectToogle">В москве<i></i></a>
+											<div class="js-selectLists">
+												<ul>
+													<li><a href="#">Личные вещи</a></li>
+													<li><a href="#">Электроника</a></li>
+													<li><a href="#">Спорт</a></li>
+													<li><a href="#">Дом и дача</a></li>
+													<li><a href="#">Детям</a></li>
+													<li><a href="#">Бизнесу</a></li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="select-catalog">
+											<a href="#" class="js-selectToogle">В москве<i></i></a>
+											<div class="js-selectLists">
+												<ul>
+													<li><a href="#">Личные вещи</a></li>
+													<li><a href="#">Электроника</a></li>
+													<li><a href="#">Спорт</a></li>
+													<li><a href="#">Дом и дача</a></li>
+													<li><a href="#">Детям</a></li>
+													<li><a href="#">Бизнесу</a></li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="select-catalog">
+											<a href="#" class="js-selectToogle">В москве<i></i></a>
+											<div class="js-selectLists">
+												<ul>
+													<li><a href="#">Личные вещи</a></li>
+													<li><a href="#">Электроника</a></li>
+													<li><a href="#">Спорт</a></li>
+													<li><a href="#">Дом и дача</a></li>
+													<li><a href="#">Детям</a></li>
+													<li><a href="#">Бизнесу</a></li>
+												</ul>
+											</div>
+										</div>
+
+										<div class="select-catalog">
+											<a href="#" class="js-selectToogle">В москве<i></i></a>
+											<div class="js-selectLists">
+												<ul>
+													<li><a href="#">Личные вещи</a></li>
+													<li><a href="#">Электроника</a></li>
+													<li><a href="#">Спорт</a></li>
+													<li><a href="#">Дом и дача</a></li>
+													<li><a href="#">Детям</a></li>
+													<li><a href="#">Бизнесу</a></li>
+												</ul>
+											</div>
+										</div>
+									</div>
+
+									<div class="range">
+										<input type="range" min="100" max="100 000" step="100" value="30 000">
+									</div>
+
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<section class="wr base">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<div class="filter-catalog">
+								<div class="select-catalog">
+									<a href="#" class="js-selectToogle">В москве<i></i></a>
+									<div class="js-selectLists">
+										<ul>
+											<li><a href="#">Личные вещи</a></li>
+											<li><a href="#">Электроника</a></li>
+											<li><a href="#">Спорт</a></li>
+											<li><a href="#">Дом и дача</a></li>
+											<li><a href="#">Детям</a></li>
+											<li><a href="#">Бизнесу</a></li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+
+
+			<!-- Catalog -->
+			<section class="wr bg-grey">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+
+							<ul class="list-catalog-products">
+								<li>
+									<article class="product-catalog">
+									  <header>
+									    <a href="#">
+									      <figure style="background: url(../../web/img/search-item-6.jpg) center; background-size: cover; width: 100%; height: 280px;">
+									        <figcaption>
+									          <span class="favorites">94%</span>
+									          <span class="sale"></span>
+									          <span class="top"></span>
+									        </figcaption>
+									      </figure>
+									    </a>
+									  </header>
+									<section>
+									  <h2><a href="#">iPhone 7</a></h2>
+									  <p>м. Кропоткинская <span>1 дн. назад</span></p>
+									  <ul>
+									    <li><a href="#">Магазин</a></li>
+									    <li><a href="#">Аукционы</a></li>
+									  </ul>
+									</section>
+									  <footer>
+									    <a href="#">
+									      <figure>
+									        <span style="background: url(../../web/img/participant-2.png); background-size: cover;"></span>
+									        <figcaption>Мария</figcaption>
+									      </figure>
+									    </a>
+									    <p>1 500 ₽</p>
+									  </footer>
+									</article>
+								</li>
+								<li>
+									<article class="product-catalog">
+									  <header>
+									    <a href="#">
+									      <figure style="background: url(../../web/img/search-item-6.jpg) center; background-size: cover; width: 100%; height: 280px;">
+									        <figcaption>
+									          <span class="favorites">94%</span>
+									          <span class="sale"></span>
+									          <span class="top"></span>
+									        </figcaption>
+									      </figure>
+									    </a>
+									  </header>
+									<section>
+									  <h2><a href="#">iPhone 7</a></h2>
+									  <p>м. Кропоткинская <span>1 дн. назад</span></p>
+									  <ul>
+									    <li><a href="#">Магазин</a></li>
+									    <li><a href="#">Аукционы</a></li>
+									  </ul>
+									</section>
+									  <footer>
+									    <a href="#">
+									      <figure>
+									        <span style="background: url(../../web/img/participant-2.png); background-size: cover;"></span>
+									        <figcaption>Мария</figcaption>
+									      </figure>
+									    </a>
+									    <p>1 500 ₽</p>
+									  </footer>
+									</article>
+								</li>
+								<li>
+									<article class="product-catalog">
+									  <header>
+									    <a href="#">
+									      <figure style="background: url(../../web/img/search-item-6.jpg) center; background-size: cover; width: 100%; height: 280px;">
+									        <figcaption>
+									          <span class="favorites">94%</span>
+									          <span class="sale"></span>
+									          <span class="top"></span>
+									        </figcaption>
+									      </figure>
+									    </a>
+									  </header>
+									<section>
+									  <h2><a href="#">iPhone 7</a></h2>
+									  <p>м. Кропоткинская <span>1 дн. назад</span></p>
+									  <ul>
+									    <li><a href="#">Магазин</a></li>
+									    <li><a href="#">Аукционы</a></li>
+									  </ul>
+									</section>
+									  <footer>
+									    <a href="#">
+									      <figure>
+									        <span style="background: url(../../web/img/participant-2.png); background-size: cover;"></span>
+									        <figcaption>Мария</figcaption>
+									      </figure>
+									    </a>
+									    <p>1 500 ₽</p>
+									  </footer>
+									</article>
+								</li>
+								<li>
+									<article class="product-catalog">
+									  <header>
+									    <a href="#">
+									      <figure style="background: url(../../web/img/search-item-6.jpg) center; background-size: cover; width: 100%; height: 280px;">
+									        <figcaption>
+									          <span class="favorites">94%</span>
+									          <span class="sale"></span>
+									          <span class="top"></span>
+									        </figcaption>
+									      </figure>
+									    </a>
+									  </header>
+									<section>
+									  <h2><a href="#">iPhone 7</a></h2>
+									  <p>м. Кропоткинская <span>1 дн. назад</span></p>
+									  <ul>
+									    <li><a href="#">Магазин</a></li>
+									    <li><a href="#">Аукционы</a></li>
+									  </ul>
+									</section>
+									  <footer>
+									    <a href="#">
+									      <figure>
+									        <span style="background: url(../../web/img/participant-2.png); background-size: cover;"></span>
+									        <figcaption>Мария</figcaption>
+									      </figure>
+									    </a>
+									    <p>1 500 ₽</p>
+									  </footer>
+									</article>
+								</li>
+								<li>
+									<article class="product-catalog">
+									  <header>
+									    <a href="#">
+									      <figure style="background: url(../../web/img/search-item-6.jpg) center; background-size: cover; width: 100%; height: 280px;">
+									        <figcaption>
+									          <span class="favorites">94%</span>
+									          <span class="sale"></span>
+									          <span class="top"></span>
+									        </figcaption>
+									      </figure>
+									    </a>
+									  </header>
+									<section>
+									  <h2><a href="#">iPhone 7</a></h2>
+									  <p>м. Кропоткинская <span>1 дн. назад</span></p>
+									  <ul>
+									    <li><a href="#">Магазин</a></li>
+									    <li><a href="#">Аукционы</a></li>
+									  </ul>
+									</section>
+									  <footer>
+									    <a href="#">
+									      <figure>
+									        <span style="background: url(../../web/img/participant-2.png); background-size: cover;"></span>
+									        <figcaption>Мария</figcaption>
+									      </figure>
+									    </a>
+									    <p>1 500 ₽</p>
+									  </footer>
+									</article>
+								</li>
+								<li>
+									<article class="product-catalog">
+									  <header>
+									    <a href="#">
+									      <figure style="background: url(../../web/img/search-item-6.jpg) center; background-size: cover; width: 100%; height: 280px;">
+									        <figcaption>
+									          <span class="favorites">94%</span>
+									          <span class="sale"></span>
+									          <span class="top"></span>
+									        </figcaption>
+									      </figure>
+									    </a>
+									  </header>
+									<section>
+									  <h2><a href="#">iPhone 7</a></h2>
+									  <p>м. Кропоткинская <span>1 дн. назад</span></p>
+									  <ul>
+									    <li><a href="#">Магазин</a></li>
+									    <li><a href="#">Аукционы</a></li>
+									  </ul>
+									</section>
+									  <footer>
+									    <a href="#">
+									      <figure>
+									        <span style="background: url(../../web/img/participant-2.png); background-size: cover;"></span>
+									        <figcaption>Мария</figcaption>
+									      </figure>
+									    </a>
+									    <p>1 500 ₽</p>
+									  </footer>
+									</article>
+								</li>
+								<li>
+									<article class="product-catalog">
+									  <header>
+									    <a href="#">
+									      <figure style="background: url(../../web/img/search-item-6.jpg) center; background-size: cover; width: 100%; height: 280px;">
+									        <figcaption>
+									          <span class="favorites">94%</span>
+									          <span class="sale"></span>
+									          <span class="top"></span>
+									        </figcaption>
+									      </figure>
+									    </a>
+									  </header>
+									<section>
+									  <h2><a href="#">iPhone 7</a></h2>
+									  <p>м. Кропоткинская <span>1 дн. назад</span></p>
+									  <ul>
+									    <li><a href="#">Магазин</a></li>
+									    <li><a href="#">Аукционы</a></li>
+									  </ul>
+									</section>
+									  <footer>
+									    <a href="#">
+									      <figure>
+									        <span style="background: url(../../web/img/participant-2.png); background-size: cover;"></span>
+									        <figcaption>Мария</figcaption>
+									      </figure>
+									    </a>
+									    <p>1 500 ₽</p>
+									  </footer>
+									</article>
+								</li>
+								<li>
+									<article class="product-catalog">
+									  <header>
+									    <a href="#">
+									      <figure style="background: url(../../web/img/search-item-6.jpg) center; background-size: cover; width: 100%; height: 280px;">
+									        <figcaption>
+									          <span class="favorites">94%</span>
+									          <span class="sale"></span>
+									          <span class="top"></span>
+									        </figcaption>
+									      </figure>
+									    </a>
+									  </header>
+									<section>
+									  <h2><a href="#">iPhone 7</a></h2>
+									  <p>м. Кропоткинская <span>1 дн. назад</span></p>
+									  <ul>
+									    <li><a href="#">Магазин</a></li>
+									    <li><a href="#">Аукционы</a></li>
+									  </ul>
+									</section>
+									  <footer>
+									    <a href="#">
+									      <figure>
+									        <span style="background: url(../../web/img/participant-2.png); background-size: cover;"></span>
+									        <figcaption>Мария</figcaption>
+									      </figure>
+									    </a>
+									    <p>1 500 ₽</p>
+									  </footer>
+									</article>
+								</li>
+								<li>
+									<article class="product-catalog">
+									  <header>
+									    <a href="#">
+									      <figure style="background: url(../../web/img/search-item-6.jpg) center; background-size: cover; width: 100%; height: 280px;">
+									        <figcaption>
+									          <span class="favorites">94%</span>
+									          <span class="sale"></span>
+									          <span class="top"></span>
+									        </figcaption>
+									      </figure>
+									    </a>
+									  </header>
+									<section>
+									  <h2><a href="#">iPhone 7</a></h2>
+									  <p>м. Кропоткинская <span>1 дн. назад</span></p>
+									  <ul>
+									    <li><a href="#">Магазин</a></li>
+									    <li><a href="#">Аукционы</a></li>
+									  </ul>
+									</section>
+									  <footer>
+									    <a href="#">
+									      <figure>
+									        <span style="background: url(../../web/img/participant-2.png); background-size: cover;"></span>
+									        <figcaption>Мария</figcaption>
+									      </figure>
+									    </a>
+									    <p>1 500 ₽</p>
+									  </footer>
+									</article>
+								</li>
+							</ul>
+
+							<a href="#" class="show_more">
+								<span>Показать еще</span>
+								<em><i class="icon icon-view-more"></i></em>
+							</a>
+
+						</div>
+					</div>
+				</div>
+			</section>
+
+			<!--//= ./ui/partners.html-->
+			<footer class="footer">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+			
+							<ul class="footer-info">
+								<li>
+									<p>Просто и безопасно</p>
+									<a href="#">Узнать больше <i class="fa fa-angle-right"></i></a>
+								</li>
+								<li class="logo">
+									<img src="../../assets/img/footer-grey.png">
+								</li>
+							</ul>
+			
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-md-12">
+			
+			
+							<div class="footer-contacts">
+								<ul>
+									<li>
+										<a href="#"><img src="../../assets/img/logoBlue.svg"></a>
+									</li>
+			
+									<li>
+										<ul>
+											<li><a href="#">Контакты</a></li>
+											<li><a href="#">Оферта</a></li>
+										</ul>
+									</li>
+									<li>
+										<ul>
+											<li><a href="mailto:contact@1plus1.shop">E-mail: contact@1plus1.shop</a></li>
+											<li><a href="tel:+79163493246">Телефон: +7 (916) 349-3246</a></li>
+										</ul>
+									</li>
+								</ul>
+			
+								<ul>
+									<li>
+										<ul>
+											<li><a href="#">Политика конфидециальности</a></li>
+											<li><small>2017 &copy; ООО “ТБП”</small></li>
+										</ul>
+									</li>
+			
+									<li>
+										<ul class="soc">
+											<li><a href="#"><i class="fa fa-vk" aria-hidden="true"></i></a></li>
+											<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+											<li><a href="#"><i class="fa fa-odnoklassniki" aria-hidden="true"></i></a></li>
+											<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+										</ul>
+									</li>
+								</ul>
+			
+							</div>
+			
+						</div>
+					</div>
+				</div>
+			</footer>
+		</div>
+
+		<!-- Scripts -->
+		<script type="text/javascript" src="../../web/js/libs.min.js"></script>
+		<script type="text/javascript" src="../../web/js/main.js"></script>
+	</body>
+</html>

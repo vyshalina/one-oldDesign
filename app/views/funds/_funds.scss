@@ -1,0 +1,399 @@
+.p-tb {
+	padding: 30px 0;
+}
+//контент в твиговском шаблоне - http://prntscr.com/h0urms
+.desc-about {p {font-size: 16px; letter-spacing: 0.5px;}}
+
+//кнопка пожертвований - http://prntscr.com/h0v0y1
+.donation-wr {
+	padding-top: 30px;
+	.donation {
+		justify-content: end;
+		transition: .4s all ease;
+		&:hover {
+			color: $link-color;
+		}
+	}
+}
+
+// LISTS
+.founds {
+	&-list {
+		display: flex; justify-content: space-between; flex-wrap: wrap;
+
+		li {
+			display: flex; flex-direction: column; justify-content: space-around;
+			figure {display: flex; align-items: center; justify-content: center;}
+			section {display: flex; flex-direction: column;}
+		}
+
+		& > li {
+			text-align: center;
+			width: 23.5%; height: 270px; margin: 10px 0;
+			background: #fff; box-shadow: 0 1px 12px 0 rgba(0, 0, 0, 0.05); border-radius: 5px;
+			@include respond-to(lg) {width: 32%;}
+			@include respond-to(md) {width: 48.5%; padding: 20px 40px;}
+			@include respond-to(xs) {width: 100%; padding: 10px;}
+			
+			a {
+				color: #474A4B; padding: 20px;
+
+				figure {
+					height: 100px; margin-bottom: 15px;
+					img {max-height: 80px;}
+				}
+				section {
+					span {
+						font-family: $HelveticaR;
+						margin-bottom: 15px;
+						&.region {color: #9d9d9d;}	
+					}
+				}
+
+				&:hover {.direction {text-decoration: underline;}}
+			}
+		}
+	}
+
+	&-menu {
+
+		position: relative; padding-bottom: 1px;
+
+		&:after {
+			content: '';
+			position: absolute; bottom:0; left:50%; height: 1px; width: 100%; transform: translateX(-50%);
+			background: #d9e4ea;
+			@include respond-to(md) {display: none;}
+		}
+
+		& > a {
+			align-items: center; justify-content: space-between;
+			@include font-type($CormacEL, 22px, 24px, -0.5px); color: #000; letter-spacing: 0.5px;
+			display: none; width: 100%; padding: 20px 10px;
+			border-bottom: 1px solid #d9e4ea;
+
+			&:hover {cursor: pointer;}
+
+			@include respond-to(md) {display: flex;}
+
+			i {
+				font-size: 20px;
+				color: #4489ff; font-weight: 600;
+				display: block; float: right;
+			}
+		}
+
+		& > ul {
+			display: flex; justify-content: space-around;
+			padding-top: 25px;
+
+			@include respond-to(md) {
+				flex-direction: column; padding-top: 0;
+				@include slide_me();
+			}
+
+			li {
+				text-align: center;
+				@include respond-to(md) {text-align: left;}
+
+				a {
+					@include font-type($CormacEL, 14px, 19px, -0.5px); color: #4a4a4a;
+					display: block; padding-bottom: 15px;
+					border-bottom: 2px solid transparent; transition: all .2s;
+
+					&:hover {border-bottom: 2px solid #4489ff; cursor: pointer;}
+
+					@include respond-to(md) {font-size: 18px; padding: 20px 10px; border-bottom: 1px solid #d9e4ea;}
+
+					span {
+						display: inline-block; letter-spacing: 0.6px;
+						&.icon-buy-wrapp {
+							display: block; height: 35px; margin: 0 auto 13px auto;
+							@include respond-to(md) {display: none;}
+						}
+					}
+				}
+
+				&.active {a {border-bottom-color: #4489ff; &:hover {cursor: default;}}}
+			}
+		}
+	}
+
+	& > a {i {transform: rotate(0deg); transition: .3s ease-in-out;}
+			&.active {i {transform: rotate(-180deg);}
+		}	
+	}
+
+	& > ul {transition: max-height .3s cubic-bezier(.42,.6,.61,.42);}
+}
+
+// LISTS
+.list { 
+	&-goods {
+		// ALL GOODS – http://prntscr.com/gg28ww
+		&.type_1 {
+			margin: -10px;
+
+			& > li {
+				position: relative;
+				width: calc(25% - 20px); margin: 10px; overflow: hidden;
+				background: #fff; border-radius: 5px; box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+
+				@include respond-to(md) {width: calc(50% - 10px); margin: 5px;}
+				@include respond-to(xs) {display: block; width: calc(100% - 20px); margin-bottom: 25px;}
+				
+
+				// ITEM – http://prntscr.com/gg2pz0
+				a {
+					display: block;
+
+					figure {
+						position: relative;
+						@include respond-to(xs) {width: 100%;}
+
+						img {width: 100%;}
+
+						figcaption {
+							position: absolute; right: 10px; top: 10px;
+							@include respond-to(xs) {display: none;}
+						}
+					}
+
+					article {
+						padding: 20px;
+						@include respond-to(xs) {display: flex; flex-direction: column; position: relative; width: 100%; padding-right: 5px;}
+
+						h2 {@include font-type($CormacEL, 18px, 1, -0.5px); color: $main-color-text; color: #000; margin-bottom: 10px;}
+
+						div {
+							display: flex; justify-content: space-between;
+							@include respond-to(xs) {flex-direction: column; height: 100%;}
+
+							p {
+								@include font-type($HelveticaL, 10px, 16px, 0.8px); color: #8d8d8d; text-transform: uppercase;
+								span {
+									@include font-type($HelveticaL, 12px, 16px, 0.5px);
+									display: block;
+								}
+							}
+
+							& > span {@include font-type($CormacEL, 18px, 1, -0.5px); color: #000;}
+						}
+					}
+
+					&:hover {article {h2 {color: #4489ff;}}}
+				}
+				
+				.like {
+					display: none; width: 45px; height: 45px; padding: 15px; 
+					position: absolute; right: 10px; top: 10px;
+					background: #fff; border-radius: 50%;
+
+					@include respond-to(xs) {top: auto; bottom: 10px;}
+					
+					i {
+						&.icon-heart-big {display: block;}
+						&.icon-heart-empty {display: none;}
+
+						@include respond-to(xs) {
+							&.icon-heart-big {display: none;}
+							&.icon-heart-empty {display: block;}
+						}
+					}
+				}
+
+				&:hover .like {display: block;}
+			}
+		}
+	}
+
+	// PROJECTS
+	&-projects {
+		// – http://prntscr.com/goynff
+		&.type_2 {
+			display: flex; flex-direction: column;
+			& > li {
+				display: flex; justify-content: space-between;
+				margin-bottom: 10px; padding: 20px 80px 20px 100px; overflow: hidden;
+				@include respond-to(md) {flex-direction: column;}
+				//@extend .neo-bg; 
+				background: #f6f8fb; border-radius: 5px;
+				@include respond-to(sm) {padding: 20px 25px 20px 25px;}
+
+				article {
+					width: 82%; padding: 30px 0 100px 0; position: relative;
+					@include respond-to(md) {width: 100%;}
+
+					h3 {line-height: 31px; width: 90%; margin-bottom: 25px;}
+
+					p {font-size: 16px; letter-spacing: 0.1px; line-height: 22px;}
+
+					& > a {@include font-type($CormacEL, 16px, 18px, 0.3px); position: absolute; left: 0; bottom: 45px;}
+				}
+
+				.line-sep {
+					width: 1px; height: auto; margin: 0 40px;
+					background: #dae2ea;
+					@include respond-to(md) {width: 100%; height: 1px; margin-bottom: 30px; margin-left: 0;}
+				}
+
+				.info {
+					width: 30%; padding: 10px 0 105px 0; position: relative;
+					@include respond-to(md) {width: 100%;}
+
+					.price {
+						text-align: right;
+						margin-bottom: 40px;
+
+						& > span {color: #89a1b3; font-size: 14px; display: block;}
+
+						p {@include font-type($CormacEL, 34px, 38px, 0.5px);}
+					}
+
+					.progress-wrapp {
+						.progress-bar {
+							margin-bottom: 17px;
+						}
+
+						ul {
+							display: flex; clear: both;
+							li {
+								text-align: right;
+								position: relative; width: 50%; height: 47px;
+
+								p {@include font-type($CormacEL, 18px, 22px, 0); font-weight: 600; text-align: right; display: inline-block; width: 100%;
+									& > span {font-weight: 400;}
+								}
+
+								& > span {color: #89a1b3; font-size: 12px; position: absolute; bottom:0; display: block; width: 100%;}
+							}
+						}
+						.term {
+							text-align: right; font-size: 12px;
+							margin-top: 16px;
+
+							span {color: #89a1b3;}
+
+							p {color: #000; font-weight: 600;}
+						}
+					}
+					a {@include font-type($CormacEL, 16px, 18px, 0); position: absolute; bottom: 45px; right: 0;}
+				}
+			}
+		}
+	}
+	
+	// 	FOUND-REPORT http://prntscr.com/ggtwon
+	&-reports {
+		@include respond-to(md) {flex-direction: column;}
+		& > li {
+			display: flex; justify-content: space-between;
+			padding: 0 0 0 100px; margin-bottom: 10px;
+			&:last-child {margin-bottom: 0;}
+			//@extend .neo-bg;
+			background: #f6f8fb; border-radius: 5px;
+			@include respond-to(md) {padding: 0 50px 50px 50px;}
+			@include respond-to(xs) {padding: 0 25px 25px 25px;}
+
+			article {
+				width: 82%; padding: 45px 20px 100px 0; position: relative;
+				@include respond-to(md) {width: 100%;}
+
+				h3 {font-size: 26px;  line-height: 34px; width: 90%; margin-bottom: 30px;}
+				
+				p {font-size: 16px; letter-spacing: 0.1px; line-height: 22px;}
+				
+				& > a {@include font-type($CormacEL, 16px, 18px, 0.3px); position: absolute; left: 0; bottom: 45px;}
+			}
+
+			figure {
+				img {max-width: 100%;}
+			}
+		}
+	}
+
+	// BOOKMARK -- http://prntscr.com/ggtaw9
+	&-bookmarks {
+
+		& > li {
+			position: relative; min-height: 137px; padding: 0 101px 0 180px; @extend .neo-bg;
+			@include respond-to(md) {padding-left: 160px; padding-right: 0;}
+			@include respond-to(mobile) {padding: 0;}
+
+			figure {
+				position: absolute; left: 0; width: 135px; height: 135px;
+				border-bottom-left-radius: 4px; border-top-left-radius: 4px; background-size: cover;
+				@include respond-to(mobile) {width: 100%; height: 300px; position: static; text-align: center;}
+
+				img {width: 100%;}
+
+			}
+
+			& > ul {
+				display: flex; justify-content: space-between; 
+				padding: 30px 0;
+				@include respond-to(md) {
+					display: flex; flex-direction: column;
+					padding: 5px 0;
+				}
+				@include respond-to(mobile) {padding: 20px;}
+				
+				& > li {
+					width: 48%; display: flex; flex-flow: column nowrap; justify-content: center;
+					@include respond-to(sm) {background: #fff;}
+					@include respond-to(mobile) {width: 100%;padding: 0; margin-bottom: 25px;}
+
+					&:last-child {text-align: right;}
+
+					h3 {
+						margin: 10px 0;
+						@include respond-to(md) {width: 100%; margin-bottom: 10px;}
+
+						a {color: #000; &:hover {box-shadow: 0px 1px 0px 0px rgba(0,0,0,0.42);}}
+					}
+
+					ul {
+						li {
+							color: #4b5769;
+							display: inline-block; margin-right: 15px;
+							@include respond-to(md) {display: block;}
+
+							i {margin-right: 10px;}
+						}
+					}
+
+					p {
+						margin-top: 10px; margin-bottom: 0;
+						@include font-type($CormacEL, 24px, 28px, 0.3px);
+
+						@include respond-to(md) {
+							color: #000; font-size: 20px; text-align: left;
+							margin-bottom: 0; margin-top: 5px;
+						}
+
+					}
+
+					span {
+						color: #4b5769; margin-top: 10px;
+						@include respond-to(md) {display: none; &.rub {display: inline-block;}}
+					}
+				}
+			}
+
+			& > a {
+
+				&.pic {display: block; overflow: hidden;}
+				&.fav {
+					display: block; width: 44px; height: 44px; position: absolute; right: 25px; top: 50%; transform: translateY(-50%);
+					background: #ffffff; border-radius: 50%;
+
+					&:hover {border: 1px solid #ccc;}
+
+					@include respond-to(md) {position: absolute; right: 10px; top: calc(100% - 30px); background: transparent;}
+
+					i {position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+				}
+			}
+		}
+	}
+}

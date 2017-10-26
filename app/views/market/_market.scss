@@ -1,0 +1,147 @@
+// @import '../../tpl/product';
+
+//стили для твиговского шаблона: размеры картинок - http://prntscr.com/h0wgee
+.main_menu_wrapp {
+	.main_menu {
+		.owl-stage-outer {
+			.owl-stage {
+				& > div {
+					img[alt="Charity Shop"] {height: 55px; position: relative; top: -6px;}
+					img[alt="Звезды"] {height: 67px; position: relative; top: -12px;}
+				}
+			}
+		}
+	}
+}
+
+//стили для адаптации чекбоксоа и выпадающих списков - http://prntscr.com/h0x9br
+.market {
+	.main_menu_wrapp {
+		@include respond-to(sm) {padding-left: 0; padding-right: 0;}
+		.main_menu {@include respond-to(sm) {display: none;}}
+		.show_mob {
+			position: relative;
+			&:after {
+				content: '\203A';
+				color: #fff; text-align: center; font-size: 30px;
+				position: absolute; top: 10px; right: -10px; display: block; width: 50px; height: 30px;
+				background: $link-color;
+				transform: rotate(90deg); pointer-events: none;
+			} 
+			select {
+				@include font-type($CormacEL, 20px, 1, 0.2px);
+				display: block; width: 100%; height: 50px; padding: 0 10px;
+				border: 1px solid #4489ff;
+				cursor: pointer; outline:none;
+			}
+		}
+	}
+	.filter {
+		@include respond-to(lg) {padding-bottom: 0;}
+		@include respond-to(sm) {flex-direction: column;}
+		.select {
+			@include respond-to(sm) {margin-bottom: 25px;}
+			&:last-child {@include respond-to(sm) {margin-bottom: 0;}}
+		}
+	}
+	.checkboxes {
+		float: right;
+		@include respond-to(lg) {float: left; clear: both; padding-bottom: 30px;}
+	}
+}
+
+// LISTS
+.market {
+	.breadcrumbs {
+		ul.share {
+			display: none;
+			@include respond-to(md) {margin: 10px auto;}
+
+			li {
+				@include respond-to(md) {margin-left: 15px;}
+				i {
+					@include respond-to(md) {font-size: 22px;}
+				}
+			}
+		}
+	}
+	.goods {
+		display: flex; flex-wrap: wrap;
+
+		margin: -10px;
+		@include respond-to(sm) {margin: 0 auto;}
+
+		& > li {
+			position: relative;
+			width: 23%; margin: 10px; overflow: hidden;
+			background: #fff; border-radius: 5px; box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.1);
+			
+			@include respond-to(desctop) {width: 23%; margin: 10px;}
+			@include respond-to(lg) {width: 32%; margin: 5px;}
+			@include respond-to(md) {width: 48%; margin: 5px;}
+			@include respond-to(sm) {display: block; width: 100%; margin-bottom: 25px;}
+			
+
+			// ITEM – http://prntscr.com/gg2pz0
+			a {
+				display: block;
+				&:hover {article {h2 {color: #4489ff;}}}
+			}
+
+			figure {
+				position: relative;
+				@include respond-to(xs) {width: 100%;}
+
+				img {width: 100%;}
+
+				figcaption {
+					position: absolute; right: 10px; top: 10px;
+					@include respond-to(xs) {display: none;}
+				}
+			}
+
+			article {
+				padding: 20px;
+				@include respond-to(xs) {display: flex; flex-direction: column; position: relative; width: 100%; padding-right: 5px;}
+
+				h2 {@include font-type($CormacEL, 18px, 26px, -0.5px); color: $main-color-text; color: #000; min-height: 60px; margin-bottom: 10px;}
+
+				div {
+					display: flex; justify-content: space-between;
+					@include respond-to(xs) {flex-direction: column; height: 100%;}
+
+					p {
+						@include font-type($HelveticaL, 10px, 16px, 0.8px); color: #8d8d8d; text-transform: uppercase;
+						span {
+							@include font-type($HelveticaL, 12px, 16px, 0.5px);
+							display: block;
+						}
+					}
+
+					& > span {@include font-type($CormacEL, 18px, 1, -0.5px); color: #000;}
+				}
+				.icon {margin-right: 10px;}
+				.price {@include font-type($CormacEL, 18px, 1, -0.5px); color: #000; padding-top: 20px;}
+			}
+				
+			
+			.like {
+				display: none; width: 45px; height: 45px; padding: 15px; 
+				position: absolute; right: 10px; top: 10px;
+				background: #fff; border-radius: 50%;
+
+				@include respond-to(xs) {top: auto; bottom: 10px;}
+				
+				i {
+					&.icon-heart-big {display: block;}
+					&.icon-heart-empty {display: none;}
+
+					@include respond-to(xs) {
+						&.icon-heart-big {display: none;}
+						&.icon-heart-empty {display: block;}
+					}
+				}
+			}
+		}
+	}
+}

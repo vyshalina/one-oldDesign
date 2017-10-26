@@ -1,0 +1,532 @@
+.app.index 	{
+	padding-top: 0;
+	.header {
+		//////Временно, чтобы не мешал
+		position: absolute;
+		////////////////////////////////
+
+		background: transparent; box-shadow: none;
+		.menu-top { 
+			& > ul { 
+				& > li { 
+					a { color: #fff; i {color: #fff;} } 
+					&.drop-down { & > a { span {background: #fff;} } }
+				} 
+			} 
+		}
+
+		a.logo {
+			display: none;
+			&.white {display: inline-block;}
+		}
+	}
+}
+
+// INTRO LANDING - http://prntscr.com/h2bdli
+.intro {
+	width: 100%; height: auto; position: relative;
+	background: url(../../web/img/index/intro.png) no-repeat center; background-size: cover;
+
+	&-body {
+		color: #fff;
+		position: relative;
+		header {
+			h1 {@include font-type($CormacB, 42px, 56px, 0px); color: #fff;}
+			p {@include font-type($CormacB, 26px, 32px, 0px);}
+			a {
+				font-size: 16px; color: #fff;
+				&:after {
+					content: '';
+					position: absolute; top: 100%;
+					border-bottom: 1px solid #fff;
+					transition: all 0.4s;
+				}
+				&:after {right: 100%; left: 0;}
+				&:hover:after {right: 0;}
+				&:hover i {transform: translateX(5px);}
+
+				i {color: #fff; transition: all 0.4s; transform: translateX(0);}	
+			}
+		}
+
+		section {
+			position: absolute; right: 50px; top: 50px;
+			p {
+				@include font-type($HelveticaM, 30px, 1, 0px); text-transform: uppercase;
+				position: relative;
+				span {
+					position: absolute;
+					@include font-type($CormacB, 18px, 1px, 0px); text-transform: none;
+				}
+			}
+		}
+	}		
+}
+
+//MENU IN INTRO http://prntscr.com/h2dmhm
+.help-menu {
+	display: flex;
+	
+	width: 984px; height: 64px; margin: 0 auto;
+	background: #fff; border-radius: 100px; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+
+	li {
+		height: inherit;
+		transition: all .4s aese;
+	
+		&.active, &:hover {
+			a {
+				color: #fff;
+				background: $btn-color; border-radius: 100px; 
+
+				i {color: #fff;}
+			}
+		}
+
+		a {
+			color: $link-color; @include font-type($CormacEL, 18px, 1px, 0px);
+			display: inline-block; height: inherit; padding: 20px 40px;
+			transition: all .4s aese;
+
+			i {color: $link-color;} 
+		}
+	}
+}
+
+
+.list {
+	&-promotion {
+		display: flex; justify-content: space-around;
+	}
+}
+
+//PROMOTION - http://prntscr.com/h2dye8
+.promotion {
+	section {
+		display: flex; justify-content: center;
+
+		p {
+			color: #000;
+			position: relative;
+			@include font-type($CormacB, 64px, 1, 0px);
+
+			i {
+				color: $link-color; font-size: 20px;
+				position: absolute; top: 20px; left: -20px;
+			}
+			span {
+				position: absolute; top: 0; right: -100px; width: 100px;
+				@include font-type($CormacEL, 18px, 1, 0px);
+			}
+		}
+	}
+	& > p {
+		@include font-type($HelveticaR, 16px, 22px, 0px); text-align: center; color: #000;
+	}
+}
+
+
+//CAROUSEL - http://prntscr.com/h2bo9g
+
+//-----//!!!ПОЧИСТИТЬ .carousel КАК ЗАРАБОТАЕТ!!!//------//
+.carousel {
+	.navigation {display: flex; justify-content: center;}
+	.owl-dots {
+		display: flex; justify-content: start;
+		@include respond-to(md) {justify-content: center;}
+	}
+
+	&-testimonials_1,
+	&-testimonials_2 {
+		.carousel-item {
+			display: flex; justify-content: space-around;
+			@include respond-to(sm) {flex-direction: column;}
+		}
+
+		.navigation {margin-top: 50px !important;}
+	}
+
+	&-testimonials_1 {
+		figure {
+			display: flex;
+			@include respond-to(md) {flex-direction: column; justify-content: center; align-items: center;}
+		}
+	}
+}
+.carousel {
+	.carousel-wrap {}
+	.carousel-item {}
+	
+	// nav + owl styles
+	.navigation,
+	.owl-dots {
+		margin-top: 20px;
+
+		li, 
+		.owl-dot {
+			width: 19px; height: 8px; margin: 0 5px;
+			background: #cdeaf6; border-radius: 10px; cursor: pointer;
+
+			&.active {background: #4489ff; &:hover {cursor: default;}}
+		}
+	}
+	.owl-dots {
+		padding-left: 60px;
+		@include respond-to(md) {padding-left: 0;}
+	}
+	
+	// modules
+	&-found {
+		width: 630px; position: relative; left: -19px;
+		@include respond-to(md) {width: 100%; padding-top: 40px; clear: both; left: 0;}
+		.carousel-item {
+			text-align: center;
+			@include respond-to(lg) {padding: 20px;}
+
+			figure {
+				width: 140px; margin: 0 auto 48px auto;
+				border-radius: 50%;
+
+				img {
+					width: 140px; height: 140px; overflow: hidden;
+				}
+				figcaption {
+					margin-top: 16px; letter-spacing: 0.2px;
+					@include font-type($CormacEL, 16px, 1, 0.4px); font-weight: 200;
+				}
+			}
+		}
+
+		.owl-dots {
+			padding-left: 50px;
+		}
+	}
+
+	&-testimonials_1,
+	&-testimonials_2 {
+		.carousel-wrap {position: relative;}
+		.carousel-item {
+			position: absolute; top: 0; left: 0; width: 100%;
+
+			figure {
+				figcaption {
+					@include font-type($CormacEL, 34px, 43px, 0);
+					@include respond-to(sm) {br {display: none;}}
+
+					span {
+						@include font-type($CormacEL, 16px, 24px, 0.5px); color: #4b5769;
+						width: 180px; color: #4b5769 !important;
+						display: block; margin-top: 20px;
+						@include respond-to(sm) {width: 100%;}
+					}
+				}
+			}
+
+			section {
+				width: 55%;
+				@include respond-to(sm) {width: 100%;}
+				p {
+					font-size: 16px; line-height: 28px; letter-spacing: 1px; color: #4b5769; font-family: $HelveticaL;;
+					@include respond-to(sm) {text-align: center; margin: 0 20px;}
+				}
+			}
+		}
+	}
+
+	&-testimonials_1 {
+		.carousel-wrap {
+			min-height: 160px;
+			@include respond-to(md) {height: 250px;}
+			@include respond-to(sm) {height: 380px;}
+			@media (max-width: 620px) {height: 420px;}
+			@media (max-width: 540px) {height: 450px;}
+			@include respond-to(xs) {height: 500px;}
+			@media (max-width: 430px) {height: 545px;}
+			@media (max-width: 400px) {height: 595px;}
+			@media (max-width: 365px) {height: 695px;}
+			@media (max-width: 333px) {height: 790px;}
+		}
+		.carousel-item {
+			justify-content: flex-start; padding-left: 8.5%;
+			figure {
+				text-align: left;
+				@include respond-to(sm) {text-align: center; width: 100%; margin-bottom: 60px;}
+				
+				img {
+					width: 80px; height: 80px; margin-right: 20px; margin-top: 5px;
+					@include respond-to(sm) {margin: 0 0 15px 0;}
+				}
+
+				figcaption {
+					span {
+						letter-spacing: 0;
+						margin-top: 13px;
+					}
+				}
+			}
+
+			section {
+				padding-left: 5.2%; width: 58.8%;
+				p {
+					line-height: 24px; letter-spacing: 0.8px;
+					padding: 11px 50px 0; position: relative;
+					
+					i {
+						content: '';
+						display: block; width: 28px; height: 28px; position: absolute;
+						&.icon-quotes-left {left: -2px; top: -1px;}
+						&.icon-quotes-right {right: 1px; bottom: -16px;}
+					}
+				}
+			}
+		}
+		.navigation {
+			margin-top: 48px !important;
+		}
+	}
+
+	&-testimonials_2 {
+		.carousel-wrap {
+			min-height: 200px;
+			@include respond-to(lg) {height: 250px;}
+			@include respond-to(md) {height: 360px;}
+			@include respond-to(sm) {height: 450px;} 
+			@media (max-width: 530px) {height: 500px;}
+			@include respond-to(xs) {height: 550px;}
+			@media (max-width: 430px) {height: 600px;}
+			@media (max-width: 390px) {height: 650px;}
+			@media (max-width: 330px) {height: 690px;}
+		}
+		.carousel-item {
+			justify-content: flex-start; padding-left: 86px;
+			figure { 
+				text-align: center; width: 19%;
+				@include respond-to(sm) {width: 100%; margin-bottom: 30px;}
+
+				img {
+					width: 180px; height: 180px; overflow: hidden;
+					border-radius: 50%;
+				}
+			}
+			section {
+				width: 69.7%; padding-left: 9.7%;
+				@include respond-to(sm) {width: 100%; padding-left: 0;}
+
+				h2 {
+					text-align: left; letter-spacing: 0;
+					margin-bottom: 34px;
+					@include respond-to(sm) {text-align: center;}
+
+				}
+
+				p {
+					line-height: 24px; letter-spacing: 0.7px;
+				}
+			}
+		}
+		.navigation {
+			margin-top: 25px !important;
+		}
+	}
+
+	// – http://prntscr.com/goyhax
+	&-kids {
+		display: inline-block; vertical-align: top; margin: 0 40px; cursor: pointer;
+
+		label {
+			display: block; width: 180px;
+			
+			.ava {
+				width: 180px; height: 180px;
+				position: relative;
+				
+				figure {
+					width: 180px; height: 180px; position: relative;
+					border-radius: 50%; border: solid 2px transparent;
+					overflow: hidden;
+					
+					img {width: calc(100% + 2px); position: absolute; left: 50%; top: 50%; transform: translate(-50%,-50%);}
+				}
+
+				span {
+					display: block; width: 28px; height: 28px; position: absolute; top: 7px; right: 18px;
+					border: 2px solid #4489ff; background-color: #f8f8f8; border-radius: 50%;
+					
+					&:after {
+						content: '';
+						width: 10px; height: 7px; position: absolute; left: 50%; top: calc(50% - 2px); transform: translate(-50%,-50%) rotate(-45deg);
+						border-left: 2px solid #4489ff; border-bottom: 2px solid #4489ff;
+						opacity: 0;
+					}
+				}
+			}
+
+			p {
+				color: #000000; font-family: $HelveticaL; font-size: 15px; font-weight: 300; text-align: center;
+				padding: 0 15px; margin-top: 30px;
+			}
+		}
+		
+		input {display: none;}
+		input:checked + label {
+			.ava {
+				figure {border-color: #4489ff;}
+				span {&:after {opacity: 1;}
+				}
+			}
+		}
+	}
+}
+.carousel {
+	&.carousel-testimonials {
+		&_1 {
+			padding: 98px 0 86px;
+		}
+		&_2 {
+			padding: 84px 0 53px;
+		}
+	}
+	&-testimonials_1,
+	&-testimonials_2 {
+		.carousel-item {
+			figure {opacity: 0; transition: all .8s;}
+			section {
+				//transform: translateX(150px);
+				opacity: 0;
+				transition: 0.5s ease-out;
+			}
+
+			&.active {
+				figure {
+					opacity: 1;
+				}
+				section {
+					opacity: 1;
+					// transform: translateX(0);  width: 100%;
+				}
+			}
+			&.left {
+				section {
+					// opacity: 0;
+					// transform: translateX(-150px); width: 70%;
+					// @include respond-to(sm) {
+					// 	transform: translateX(-75px);
+					// }
+					// @include respond-to(xs) {
+					// 	transform: translateX(-30px);
+					// }
+				}
+			}
+			&.right {
+				section {
+					// opacity: 0;
+					// transform: translateX(150px); width: 70%;
+					// @include respond-to(sm) {
+					// 	transform: translateX(75px);
+					// }
+					// @include respond-to(xs) {
+					// 	transform: translateX(30px);
+					// }
+				}
+			}
+		}
+	}
+
+	&-kids {
+		label {
+			.ava {
+				figure {transition: 0.3s ease-out;}
+				span {&:after {transition: 0.3s ease-out;}}
+			}
+		}
+	}
+
+	.navigation, .owl-dots {
+
+		li, .owl-dot {
+			transition: all .2s ease; transform: translateY(0);
+
+			&:hover {background: #4489ff; transform: translateY(-3px);}
+			&:active {transform: translateY(0);}
+			&.active {transform: translateY(0); &:hover {cursor: default;}}
+		}
+	}
+}
+//-----/////////////////////////////////------//
+
+
+//DOINGS - http://prntscr.com/h2caai
+.doings {
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	&-wr {
+		display: flex; justify-content: space-between; align-items: flex-start;
+		@include respond-to(md) {flex-direction: column;}
+	}
+
+	&-item {@include respond-to(md) {display: flex;}}
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	//////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+	&-item {
+		width: 32%;
+		background: #fff; border: 1px solid #d9e4ea; cursor: pointer;
+		@include respond-to(md) {width: 100%; margin: 10px 0;}
+		@media (max-width: 580px){flex-direction: column;}
+
+		&:hover {
+			box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.08);
+		}
+
+		figure{
+			width: 100%; 
+			overflow: hidden;
+
+			img {width: 100%;}
+		}
+
+		section {
+			padding: 36px 20px 40px 27px;
+			@include respond-to(md) {padding: 15px 20px;}
+
+			h4 {
+				font-size: 22px; line-height: 32px; letter-spacing: 0;
+				margin-bottom: 25px;
+			}
+			p {
+				@include font-type($HelveticaL, 16px, 24px, 0.7px); color: #4b5769;
+				margin-bottom: 14px;
+			}
+			span {@include font-type($HelveticaL, 10px, 18px, 1.1px); text-transform: uppercase; color: #4b5769;}
+		}
+	}
+}
+.wr {
+	.col-md-12 {
+		& > section {
+			padding: 80px 0;
+
+			&.doings {
+				padding: 67px 0 86px;
+
+				h2 {
+					letter-spacing: 0;
+					margin-bottom: 54px;
+				}
+			}
+		}
+	}
+}
+
+//PARTNERS - http://prntscr.com/h2caw6
+.partners-style2 {
+	padding: 66px 0 53px;
+	border-top: 1px solid #e7edf2;
+
+	ul {
+		display: flex; align-items: center;  justify-content: space-between; flex-wrap: wrap;
+	}
+}
+

@@ -1,0 +1,120 @@
+.btn-wrapp {
+	display: flex; justify-content: center;
+	margin-top: 80px;
+	@include respond-to(sm) {flex-direction: column;}
+}
+
+// BASE BUTTON – http://prntscr.com/gg2bdo
+/*****************************************/
+/* 
+	<a href="#" class="btn">www.fonddar.ru</a> 
+*/
+
+.btn {
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	&-reserve {
+		display: flex; align-items: center;
+	}
+
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	////////////////////////////////////////////////////////////////////////////////////////////////////////////
+	color: #ffffff; @include font-type($CormacEL, 15px, 1, 0.2px);
+	padding: 14px 22px; margin: 0; vertical-align: baseline;
+	border: none; background: #4489ff; border: solid 1px #4489ff; border-radius: 100px;
+
+	&:hover {
+		color: #4489ff;
+		background: #fff;
+	}
+
+	&.shadow {
+		box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.land & {
+		@include font-type($CormacEL, 20px, 20px, 0.5px); letter-spacing: -0.5px;
+		padding: 16px 30px 14px 30px; margin: 0 10px;
+		@include respond-to(sm) {margin: 10px auto; width: 60%;}
+		@include respond-to(xs) {width: 90%;}
+		i {
+			margin-right: 15px; position: relative; top: -1px;
+		}
+
+		&:hover {
+			i.icon-header_plus-white {background: url('../img/header_plus.png') 0 0 no-repeat;}
+			i.icon-header_search-white {background: url('../img/header_search.png') 0 0 no-repeat;}
+		}
+	}
+
+	&.white {
+		@include font-type($CormacEL, 16px, 20px, 0.5px); color: $link-color;
+		background: #fff;
+		&:hover {
+			color: #fff;
+			background: $link-color;
+		}
+	}
+
+	&-reserve {
+		@include font-type($CormacB, 16px, 80px, 0);
+		height: 80px; 
+		background: #fff; box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); border-radius: 40px;
+		transition: .4s all ease;
+
+		&:hover {
+			background: #f4f7fb;
+		}
+	}
+}
+
+
+// DONATION BUTTON – http://prntscr.com/gg1z7v
+/*********************************************/
+/* 
+	<a href="#" class="donation"><p>Пожертвовать вещь фонду</p><i class="icon icon-plus-add"></i></a> 
+*/
+
+.donation {
+	color: #000;
+	display: flex; align-items: center;
+
+	p {@include font-type($CormacEL, 16px, 1, 0);}
+	i {margin-left: 15px;}
+}
+
+// SHOW MORE BUTTON – http://prntscr.com/gg2b1b
+/**********************************************/
+/* 
+	<a href="#" class="show_more">
+		<span>Показать еще</span>
+		<em><i class="icon icon-view-more"></i></em>
+	</a> 
+*/
+
+.show_more {
+	text-align: center; color: rgba(0, 0, 0, 0.7); 
+	display: block; margin: 30px 0;
+	
+	span {
+		display: block; margin-bottom: 10px;
+	}
+	em {
+		text-align: left;
+		display: block; width: 33px; height: 33px; position: relative; padding: 11px 0 0 11px; margin: 0 auto;
+		border: 1px solid #4489ff; border-radius: 50%;
+		
+		i {vertical-align: top;}
+	}
+	.ladda-label {
+		position: relative;
+	}
+	.ladda-spinner {
+		width: 10px; margin: 0 auto; position: absolute; bottom: 0; left: 50%;
+		@include respond-to(md) {bottom: -20px;}
+	}
+	
+}

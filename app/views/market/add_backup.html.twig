@@ -1,0 +1,590 @@
+{% extends 'layout.html.twig' %}
+
+{% set useBootstrap = true %}
+
+{% block stylesheets %}
+    {{ parent() }}
+
+    <link href="{{ asset('assets/vendors/jquery-ui/jquery-ui.min.css') }}" rel="stylesheet">
+{% endblock %}
+
+{% form_theme form _self %}
+
+{%- block form_errors -%}
+    {%- if errors|length > 0 -%}
+        <ul style="color: red; list-style: none; padding: 0 0 0 0;">
+            {%- for error in errors -%}
+                <li>{{ error.message }}</li>
+            {%- endfor -%}
+        </ul>
+    {%- endif -%}
+{%- endblock form_errors -%}
+
+{% block popup %}
+    {% include 'AppBundle:widgets:selectfund.html.twig' %}
+{% endblock popup %}
+
+{% block body %}
+    {% if user.isLoggedIn %}
+        <div class="row">
+            <div class="col-md-12">
+                <h1 class="regular">{% if isEdit %}Редактировать объявление{% else %}Разместить объявление{% endif %}</h1>
+
+                {{ form_start(form) }} {# , {attr: {novalidate: 'novalidate'}} #}
+                {{ form_errors(form) }}
+                {% if errors %}
+                    {% for error in errors %}
+                        <p style="color: red">{{ error }}</p>
+                    {% endfor %}
+                {% endif %}
+
+                <div class="panel panel-info">
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <span style="float:right">
+                                <label style="font-weight: normal">   {{ form_widget(form.fundsave) }}
+                                    Запомнить выбор </label>
+                            </span>
+                            Благотворительный проект</h2>
+                    </div>
+
+
+                    <div class="panel-body">
+                        <div>
+                            <span class="hide_by_buyer_selects_donation">
+                                <label>Благотворительность</label><br>
+
+                                <div id="selected-charity">
+                                    <div id="selected-charity-name">
+                                        {% if selectedCharity %}
+                                            Вы выбрали: {{ selectedCharity }}
+                                        {% endif %}
+                                    </div>
+                                </div>
+
+                                <a class="btn btn-primary popup-trigger"
+                                   id="show-charity-window-btn" onclick="return false;">
+                                    Выбрать проект
+                                </a>
+                                &nbsp;или&nbsp;
+                            </span>
+                            {{ form_widget(form.buyer_selects_donation) }} {{ form_label(form.buyer_selects_donation) }}
+                            <br>
+                        </div>
+                        <span class="hide_by_buyer_selects_donation"><br></span>
+                        {% if isCompany!=1 %}
+                        <div class="hide">
+                            {% endif %}
+                            <div class="form-group">
+                                {{ form_label(attribute(form, 'charity_share')) }}
+                                {{ form_widget(attribute(form, 'charity_share'), {
+                                    'type':'number',
+                                    'value':  product.getCharityShare(),
+                                    'attr': {
+                                        'class':        'form-control',
+                                        'placeholder': '',
+                                        'style':'width:100px; display: inline',
+                                    }}) }} <label> &nbsp % </label>
+                            </div>
+                            {% if isCompany!=1 %}
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <div class="panel panel-info">
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <span style="float:right">
+                              <label style="font-weight: normal">  {{ form_widget(form.contactssave) }}
+                                  Запомнить данные </label>
+                            </span>
+                            Контакты</h2>
+                    </div>
+
+                    <div class="panel-body">
+                        {{ form_row(attribute(form, 'city'), {'attr': {
+                            'class':        'form-control',
+                            'placeholder': ''
+                        }}) }}
+
+                        {{ form_row(attribute(form, 'contact_name'), {'attr': {
+                            'class':        'form-control',
+                            'placeholder': ''
+                        }}) }}
+
+                        {{ form_row(attribute(form, 'phone'), {'attr': {
+                            'class':        'form-control',
+                            'placeholder': ''
+                        }}) }}
+
+                        {{ form_row(attribute(form, 'address'), {'attr': {
+                            'class':        'form-control',
+                            'placeholder': ''
+                        }}) }}
+                    </div>
+
+                </div>
+
+                <div class="panel panel-info" id="product-panel-1">
+
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a style="float:right" href="#" onclick="if (!confirm('Вы уверены?')) return false;"
+                               id="clearProduct">Очистить</a>
+                            Вещь
+                        </h2>
+                    </div>
+
+                    <div class="panel-body">
+                        {{ form_row(attribute(form, 'category'), {'attr': {
+                            'class':        'form-control',
+                            'placeholder': ''
+                        }}) }}
+
+                        {{ form_row(attribute(form, 'name'), {'attr': {
+                            'class':        'form-control',
+                            'placeholder': ''
+                        }}) }}
+
+                        {{ form_row(attribute(form, 'price'), {'attr': {
+                            'class':        'form-control',
+                            'placeholder': ''
+                        }}) }}
+
+                        {{ form_row(attribute(form, 'description'), {'attr': {
+                            'class':        'form-control',
+                            'placeholder': ''
+                        }}) }}
+
+                        {% if form.internalid is defined %}
+                        {{ form_row(attribute(form, 'internalid'), {'attr': {
+                            'class':        'form-control',
+                            'placeholder': ''
+                        }}) }}
+                        {% endif %}
+                        <br>
+
+                        <div class="panel panel-info">
+                            <div class="panel-heading clickable">
+                                <h2 class="panel-title" style="cursor: pointer">[+] Дополнительно</h2>
+                            </div>
+                            <div class="panel-body">
+                                {{ form_row(attribute(form, 'itemcount'), {'attr': {
+                                    'class':        'form-control',
+                                    'placeholder': ''
+                                }}) }}
+
+                            </div>
+                        </div>
+
+                        <br>
+
+                        <div class="panel panel-info">
+
+                            <div class="panel-heading">
+                                <h2 class="panel-title">Фото</h2>
+                            </div>
+
+                            <div class="panel-body">
+
+                                {% for image in images %}
+                                    <div class="row" style="margin: 0 0 20px 0">
+                                        {% if loop.first %}
+                                            <div class="col-md-3">
+                                                {{ form_errors(attribute(form, 'image1')) }}
+                                                {{ form_label(attribute(form, 'image1')) }}<br>
+                                                <a href="{{ asset(image.fileUrl('1000p')) }}">
+                                                    <img src="{{ asset(image.getFileUrl('128p')) }}"/>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <strong>Заменить фото</strong>
+                                                {{ form_widget(attribute(form, 'image1'), {'attr': {
+                                                    'class':        'form-control',
+                                                }}) }}
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">Допустимые файлы: jpg, jpeg, png, gif</div>
+                                                </div>
+                                            </div>
+                                        {% elseif loop.index in 2..3 %}
+                                            <div class="col-md-3">
+                                                {{ form_errors(attribute(form, 'image'~loop.index)) }}
+                                                {{ form_label(attribute(form, 'image'~loop.index)) }}
+                                                <a href="{{ asset(image.fileUrl('1000p')) }}">
+                                                    <img src="{{ asset(image.getFileUrl('128p')) }}"/>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <strong>Заменить фото</strong>
+                                                {{ form_widget(attribute(form, 'image'~loop.index), {'attr': {
+                                                    'class':        'form-control',
+                                                }}) }}
+                                                Допустимые файлы: jpg, jpeg, png, gif<br/>
+                                                <br/>
+                                                <a href="{{ path('market_product_delete_image', {'url': product.id, 'id': image.id }) }}"
+                                                   onclick="if (!confirm('Вы уверены?')) return false;"
+                                                   style="text-decoration: none"><i class="fa fa-trash-o"
+                                                                                    aria-hidden="true"></i> удалить фото</a>
+                                                <br><br>
+                                            </div>
+                                        {% else %}
+                                            <div class="row" style="margin: 0 0 20px 0">
+                                                <div class="col-md-3">
+                                                    <a href="{{ asset(image.fileUrl('1000p')) }}">
+                                                        <img src="{{ asset(image.getFileUrl('128p')) }}"/>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <a href="{{ path('market_product_delete_image', {'url': product.id, 'id': image.id }) }}"
+                                                       onclick="if (!confirm('Вы уверены?')) return false;"
+                                                       style="text-decoration: none"><i class="fa fa-trash-o"
+                                                                                        aria-hidden="true"></i> удалить
+                                                        фото</a><br><br>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+
+                                {% if product.images.count < 3 %}
+                                    {% for i in 1 .. 3 - product.images.count %}
+                                        {% set id = i + product.images.count %}
+                                        <div class="col-md-3">
+                                            {{ form_errors(attribute(form, 'image'~id)) }}
+                                            {{ form_label(attribute(form, 'image'~id)) }}<br>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <strong>Добавить фото</strong>
+                                            {{ form_widget(attribute(form, 'image'~id), {'attr': {
+                                                'class':        'form-control',
+                                            }}) }}
+                                            Допустимые файлы: jpg, jpeg, png, gif
+                                            <br><br>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+
+
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                {#
+                                {% for group_name, group in form_dict.groups %}
+                                    {% if group.manual_design_template is not defined or (group.manual_design_template is defined and not group.manual_design_template) %}
+
+                                        <div class="panel panel-info">
+                                            {% if group.title %}
+                                                <div class="panel-heading">
+                                                    <h2 class="panel-title">{{ group.title }}</h2>
+                                                </div>
+                                            {% endif %}
+
+                                            <div class="panel-body">
+                                                {% if group.description_top is defined %}
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            {{ group.description_top|raw }}
+                                                        </div>
+                                                    </div>
+                                                    <br>
+                                                {% endif %}
+
+                                                <div class="row">
+                                                    <div class="col-sm-6">
+                                                        {% for name, field in group.fields
+                                                        if (attribute(form, name) is defined) %}
+                                                            {% if loop.index == 1 and loop.parent.loop.index == 1 %}
+                                                                <div>
+                                                                    <label>Благотворительность</label><br>
+
+                                                                    <div id="selected-charity">
+                                                                        <div id="selected-charity-name">
+                                                                            {% if selectedCharity %}
+                                                                                Вы выбрали: {{ selectedCharity }}
+                                                                            {% endif %}
+                                                                        </div>
+                                                                    </div>
+
+                                                                    <a class="btn btn-primary popup-trigger"
+                                                                       id="show-charity-window-btn" onclick="return false;">
+                                                                        Выбрать благотворительный проект
+                                                                    </a><br>
+                                                                </div>
+                                                                <br>
+                                                            {% endif %}
+
+                                                            {% if (field.enabled is defined and field.enabled) or (field.enabled is not defined) %}
+                                                                {% if (field.column is defined and field.column == 'left') or (field.column is not defined) %}
+                                                                    {{ form_row(attribute(form, name), {'attr': {
+                                                                        'class':        'form-control'~( name in ['city','category'] ? ' js-example-basic-single':''),
+                                                                        'placeholder': ( field.placeholder is defined ? field.placeholder : '' )
+                                                                    }}) }}
+                                                                    {% if field.hint is defined %}
+                                                                        <div class="form-group">
+                                                                            <div class="col-sm-12">{{ field.hint }}</div>
+                                                                        </div>
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                    <div class="col-sm-6">
+                                                        {% for name, field in group.fields
+                                                        if (attribute(form, name) is defined) %}
+                                                            {% if (field.enabled is defined and field.enabled) or (field.enabled is not defined) %}
+                                                                {% if (field.column is defined and field.column == 'right') %}
+                                                                    {{ form_row(attribute(form, name), {'attr': {
+                                                                        'class':        'form-control',
+                                                                        'placeholder': ( field.placeholder is defined ? field.placeholder : '' ),
+                                                                        'data-toggle': (field.hint is defined ? 'tooltip' : ''),
+                                                                        'data-placement': (field.hint is defined ? 'bottom' : ''),
+                                                                        'data-original-title': (field.hint is defined ? field.hint : '')
+                                                                    }}) }}
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+
+                                                <div class="row">
+                                                    <div class="col-sm-12">
+                                                        {% for name, field in group.fields
+                                                        if (attribute(form, name) is defined) %}
+                                                            {% if (field.enabled is defined and field.enabled) or (field.enabled is not defined) %}
+                                                                {% if (field.column is defined and field.column == 'both') %}
+                                                                    {{ form_row(attribute(form, name), {'attr': {
+                                                                        'class':        'form-control',
+                                                                        'placeholder': ( field.placeholder is defined ? field.placeholder : '' )
+                                                                    }}) }}
+                                                                    {% if field.hint is defined %}
+                                                                        <div class="form-group">
+                                                                            <div class="col-sm-4"></div>
+                                                                            <div class="col-sm-8">{{ field.hint }}</div>
+                                                                        </div>
+                                                                    {% endif %}
+                                                                {% endif %}
+                                                            {% endif %}
+                                                        {% endfor %}
+                                                    </div>
+                                                </div>
+
+                                                {% if group.description_bottom is defined %}
+                                                    <div class="row">
+                                                        <div class="col-sm-12">
+                                                            {{ group.description_bottom }}
+                                                        </div>
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                #}
+
+                {# вручную создаем сложную секцию #}
+                {#
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">Фото</h2>
+                    </div>
+                    <div class="panel-body">
+                        <div class="row">
+                            <div class="col-sm-12">
+                                {% for image in images %}
+                                    <div class="row" style="margin: 0 0 20px 0">
+                                        {% if loop.first %}
+                                            <div class="col-md-3">
+                                                {{ form_errors(attribute(form, 'image1')) }}
+                                                {{ form_label(attribute(form, 'image1')) }}<br>
+                                                <a href="{{ asset(image.fileUrl('1000p')) }}">
+                                                    <img src="{{ asset(image.getFileUrl('128p')) }}"/>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <strong>Заменить фото</strong>
+                                                {{ form_widget(attribute(form, 'image1'), {'attr': {
+                                                    'class':        'form-control',
+                                                }}) }}
+                                                <div class="form-group">
+                                                    <div class="col-sm-12">Допустимые файлы: jpg, jpeg, png, gif</div>
+                                                </div>
+                                            </div>
+                                        {% elseif loop.index in 2..3 %}
+                                            <div class="col-md-3">
+                                                {{ form_errors(attribute(form, 'image'~loop.index)) }}
+                                                {{ form_label(attribute(form, 'image'~loop.index)) }}
+                                                <a href="{{ asset(image.fileUrl('1000p')) }}">
+                                                    <img src="{{ asset(image.getFileUrl('128p')) }}"/>
+                                                </a>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <strong>Заменить фото</strong>
+                                                {{ form_widget(attribute(form, 'image'~loop.index), {'attr': {
+                                                    'class':        'form-control',
+                                                }}) }}
+                                                Допустимые файлы: jpg, jpeg, png, gif<br/>
+                                                <br/>
+                                                <a href="{{ path('market_product_delete_image', {'url': product.id, 'id': image.id }) }}"
+                                                   onclick="if (!confirm('Вы уверены?')) return false;"
+                                                   style="text-decoration: none"><i class="fa fa-trash-o"
+                                                                                    aria-hidden="true"></i> удалить фото</a>
+                                                <br><br>
+                                            </div>
+                                        {% else %}
+                                            <div class="row" style="margin: 0 0 20px 0">
+                                                <div class="col-md-3">
+                                                    <a href="{{ asset(image.fileUrl('1000p')) }}">
+                                                        <img src="{{ asset(image.getFileUrl('128p')) }}"/>
+                                                    </a>
+                                                </div>
+                                                <div class="col-md-9">
+                                                    <a href="{{ path('market_product_delete_image', {'url': product.id, 'id': image.id }) }}"
+                                                       onclick="if (!confirm('Вы уверены?')) return false;"
+                                                       style="text-decoration: none"><i class="fa fa-trash-o"
+                                                                                        aria-hidden="true"></i> удалить
+                                                        фото</a><br><br>
+                                                </div>
+                                            </div>
+                                        {% endif %}
+                                    </div>
+                                {% endfor %}
+
+                                {% if product.images.count < 3 %}
+                                    {% for i in 1 .. 3 - product.images.count %}
+                                        {% set id = i + product.images.count %}
+                                        <div class="col-md-3">
+                                            {{ form_errors(attribute(form, 'image'~id)) }}
+                                            {{ form_label(attribute(form, 'image'~id)) }}<br>
+                                        </div>
+                                        <div class="col-md-9">
+                                            <strong>Добавить фото</strong>
+                                            {{ form_widget(attribute(form, 'image'~id), {'attr': {
+                                                'class':        'form-control',
+                                            }}) }}
+                                            Допустимые файлы: jpg, jpeg, png, gif
+                                            <br><br>
+                                        </div>
+                                    {% endfor %}
+                                {% endif %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+#}
+
+
+
+                {{ form_end(form) }}
+
+            </div>
+            {#<div class="col-md-3">
+                {% render controller('AppBundle:Default:sidebar') %}
+            </div>#}
+        </div>
+
+    {% else %}
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h1>ЛЕНДИНГ ДЛЯ ЖЕРТВОВАТЕЛЕЙ ВЕЩЕЙ</h1>
+
+                Чтобы разместить вещь для пожертвования, <a href="{{ path('fos_user_registration_register') }}">зарегистрируйтесь</a>
+                или
+                <a href="{{ path('fos_user_security_login') }}?redirect={{ path('market_add')|url_encode }}">войдите</a>.
+            </div>
+        </div>
+    {% endif %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script src="{{ asset('js/popup.js') }}"></script>
+
+    <script>
+        // переменные для selectfund.js
+        var api_get_fund_projects = "{{ path('api_get_fund_projects') }}";
+        var api_get_fund_project_people = "{{ path('api_get_fund_project_people') }}";
+        var api_get_fund_person = "{{ path('api_get_fund_person') }}";
+        // переменные для selectfund.js
+    </script>
+    <script src="{{ asset('js/widgets/selectfund.js') }}"></script>
+
+    <!-- Masked Input for Phone Numbers -->
+    <script src="{{ asset('/assets/vendors/jquery.maskedinput/dist/jquery.maskedinput.min.js') }}"
+            type="text/javascript"></script>
+
+    <script src="{{ asset('/assets/vendors/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            api_get_fund_launcher = api_get_fund_launcher_add; //откуда запустили для selectfund.js
+
+            $("#phone").mask("(999) 999-9999");
+
+
+            $("#city").select2({});
+            $("#category").select2({});
+
+            $('#clearProduct').click(function (e) {
+                $('#name').val('');
+                $('#price').val('');
+                $('#description').val('');
+                $('#internalid').val('');
+                $('#itemcount').val(1);
+                return false;
+            });
+
+            //скрываю выбор благотворительности, если стоит галка buyer_selects_donation
+            if ($('#buyer_selects_donation').prop('checked')) {
+                $('.hide_by_buyer_selects_donation').hide();
+            }
+            ;
+
+            //скрытие/показ выбора благотворительности при нажатии галки buyer_selects_donation
+            $('#buyer_selects_donation').click(function () {
+                var $this = $(this);
+                var $div_selected_charity = $('.hide_by_buyer_selects_donation');
+                if ($this.prop('checked')) {
+                    $div_selected_charity.hide();
+                } else {
+                    $div_selected_charity.show();
+                }
+                ;
+                return true;
+            });
+
+        });
+
+        // панель ритейлера
+        $(document).on('click', '.panel div.clickable', function (e) {
+            var $this = $(this); //Heading
+            var $panel = $this.parent('.panel');
+            var $panel_body = $panel.children('.panel-body');
+            var $display = $panel_body.css('display');
+
+            if ($display == 'block') {
+                $panel_body.slideUp();
+                $this.children('.panel-title').text('[+] Дополнительно');
+            } else if ($display == 'none') {
+                $panel_body.slideDown();
+                $this.children('.panel-title').text('[-] Дополнительно');
+            }
+        });
+
+        $(document).ready(function (e) {
+            $('[data-toggle="tooltip"]').tooltip({
+                container: 'body'
+            });
+
+            var $panel = $('.panel div.clickable').parent('.panel').children('.panel-body');
+            $panel.slideUp();
+        });
+    </script>
+{% endblock %}

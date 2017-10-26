@@ -1,0 +1,146 @@
+.footer {
+	///////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////
+	&-info {
+		display: flex; align-items: center;
+		@include respond-to(sm) {flex-direction: column-reverse;}
+	}
+
+	&-contacts {
+		display: flex;
+		@include respond-to(sm) {flex-wrap: wrap;}
+	}
+	///////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////
+	padding-top: 20px;
+	background: #fff; border-top: 1px solid #d9e4ea; overflow: hidden;
+
+	&-info {
+		padding-bottom: 41px;
+		li {
+			width: 49%; padding-left: 61px; padding-top: 33px;
+			@include respond-to(sm) {padding: 10px 0; width: 100%;}
+
+			&:first-child {
+				text-align: right;
+				padding: 31px 0px 10px 0; position: relative; display: inline-block;
+				@include respond-to(sm) {text-align: center; padding-right: 0;}
+
+				p {@include font-type($CormacB, 23px, 29px, -0.5px); color: #000; margin-bottom: 7px;}
+				a {
+					@include font-type($CormacEL, 16px, 22px, 0); color: #4b5769; letter-spacing: 0px;
+					display: inline-block; position: relative;
+					&:after {
+						content: '';
+						position: absolute; top: 100%;
+						border-bottom: 1px solid $link-color;
+						transition: all 0.4s;
+					}
+					&:after {right: 100%; left: 0;}
+					&:hover:after {right: 0;}
+
+					i {color: $link-color; font-weight: 600; margin-left: 11px; transition: all 0.4s; transform: translateX(0);}
+					&:hover i {transform: translateX(5px);}
+					
+				}
+			}
+
+			&.sep {
+				width:1px; height: 100px; margin: 0 10px; padding: 0;
+				background: #fff;
+				@include respond-to(sm) {display: none;}
+			}
+
+			&.logo {
+				img {width: auto; max-width: 100%;}
+				@include respond-to(sm) {text-align: center; padding-left: 0;}
+			}
+		}
+
+	}
+
+	&-contacts {
+		@include font-type($HelveticaL, 12px, 22px, 0.5px);
+		position: relative; padding-top: 29px; padding-bottom: 28px;
+		
+		@include respond-to(md){flex-direction: column;}
+		@include respond-to(sm) {font-size: 16px; letter-spacing: 0.2px;}
+
+		&:after {
+			content: '';
+			position: absolute; top:0; left:50%; margin-left: -5000px; width:10000px; height: 1px;
+			background: #e7edf2;
+		}
+		a {font-family: $CormacEL;}
+		& > ul {
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			display: flex; align-items: center;  justify-content: space-between;
+			@include respond-to(xs) {flex-direction: column; align-items: flex-start;}
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////
+			////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+			width: 50%;
+			@include respond-to(md) {width: 100%;}
+
+			&:first-child {
+				padding-right: 9px;
+				@include respond-to(md) {margin-right: 0; margin-bottom: 40px;}
+				@include respond-to(xs) {margin-bottom: 10px;}
+			}
+			&:last-child {
+				padding-left: 49px;
+				@include respond-to(xs) {padding-left: 0;}
+			}
+
+			& > li {
+				@include respond-to(xs) {
+					margin-bottom: 15px;
+					&:last-child {margin-bottom: 0;}
+				}
+
+				ul {
+					&.soc {
+						display: flex;
+						li {
+							margin-left: 30px;
+							@include respond-to(xs) {&:first-child {margin-left: 0;}}
+							a {
+								&:after {display: none;}
+								i {
+									color: $link-color; font-size: 24px;
+									transition: all 0.4s;
+								}
+								&:hover {i {color: #4b5769;}}
+							}
+						}
+					}
+					li {
+						margin-bottom: 3px;
+						&:last-child {
+							margin-bottom: 0;
+						}
+						a {
+							color: #4b5769; font-size: 14px; letter-spacing: 0.1px;
+							position: relative; padding-bottom: 5px;
+							&:after {
+									content: '';
+									position: absolute;
+									border-bottom: 1px solid $link-color;
+									top: 100%;
+									transition: all 0.4s;
+								}
+								&:after {right: 100%; left: 0;}
+								&:hover:after {right: 0;}
+						}
+					}
+
+				}
+			}
+		}	
+	}	
+}
