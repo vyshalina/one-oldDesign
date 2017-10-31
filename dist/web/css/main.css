@@ -10655,7 +10655,11 @@ button.close {
         .filter-result_goods > li ul {
           -webkit-flex-wrap: wrap;
           -ms-flex-wrap: wrap;
-          flex-wrap: wrap; } }
+          flex-wrap: wrap;
+          padding-bottom: 20px; } }
+      @media (max-width: 480px) {
+        .filter-result_goods > li ul {
+          padding-bottom: 20px; } }
       .filter-result_goods > li ul > li {
         display: -webkit-box;
         display: -webkit-flex;
@@ -10674,7 +10678,7 @@ button.close {
         letter-spacing: 0.2px;
         position: relative;
         height: auto;
-        width: 20%;
+        padding: 0 13px;
         -webkit-box-sizing: border-box;
         box-sizing: border-box; }
         @media (max-width: 991px) {
@@ -10683,7 +10687,12 @@ button.close {
             padding-bottom: 20px !important; } }
         @media (max-width: 480px) {
           .filter-result_goods > li ul > li {
-            width: 50%; } }
+            -webkit-box-pack: start;
+            -webkit-justify-content: start;
+            -ms-flex-pack: start;
+            justify-content: start;
+            width: 50%;
+            padding-left: 15px; } }
         .filter-result_goods > li ul > li:after {
           content: '';
           height: 50px;
@@ -10718,14 +10727,9 @@ button.close {
               width: 320px; } }
           @media (max-width: 991px) {
             .filter-result_goods > li ul > li.name {
-              width: -webkit-calc(100% - 180px);
-              width: calc(100% - 180px); } }
-          @media (max-width: 767px) {
-            .filter-result_goods > li ul > li.name {
-              width: -webkit-calc(100% - 80px);
-              width: calc(100% - 80px);
-              padding-left: 100px;
-              margin-bottom: 30px; } }
+              padding-left: 15px;
+              width: -webkit-calc(100% - 100px);
+              width: calc(100% - 100px); } }
         .filter-result_goods > li ul > li.view {
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
@@ -10750,6 +10754,10 @@ button.close {
           @media (max-width: 1199px) {
             .filter-result_goods > li ul > li.view {
               padding-left: 30px; } }
+          @media (max-width: 991px) {
+            .filter-result_goods > li ul > li.view {
+              width: 100%;
+              padding-left: 15px; } }
           .filter-result_goods > li ul > li.view .date {
             display: -webkit-box;
             display: -webkit-flex;
@@ -10767,23 +10775,24 @@ button.close {
               letter-spacing: 1px;
               text-transform: uppercase;
               color: #4b5769; }
-          @media (max-width: 991px) {
-            .filter-result_goods > li ul > li.view {
-              width: -webkit-calc(50% - 40px);
-              width: calc(50% - 40px); } }
-          @media (max-width: 767px) {
-            .filter-result_goods > li ul > li.view {
-              width: 100%;
-              padding-left: 100px; } }
         .filter-result_goods > li ul > li.donation {
-          padding-right: 12px;
           -webkit-box-orient: horizontal;
           -webkit-box-direction: normal;
           -webkit-flex-direction: row;
           -ms-flex-direction: row;
           flex-direction: row;
-          flex-direction: column; }
-          @media (max-width: 1250px) {
+          display: -webkit-box;
+          display: -webkit-flex;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: center;
+          -webkit-justify-content: center;
+          -ms-flex-pack: center;
+          justify-content: center;
+          font-size: 12px;
+          padding-right: 12px;
+          width: 19%; }
+          @media (max-width: 1199px) {
             .filter-result_goods > li ul > li.donation {
               -webkit-box-orient: vertical;
               -webkit-box-direction: normal;
@@ -10792,30 +10801,35 @@ button.close {
               flex-direction: column; } }
           @media (max-width: 991px) {
             .filter-result_goods > li ul > li.donation {
-              -webkit-box-orient: horizontal;
-              -webkit-box-direction: normal;
-              -webkit-flex-direction: row;
-              -ms-flex-direction: row;
-              flex-direction: row; } }
+              width: 25%; } }
           @media (max-width: 480px) {
             .filter-result_goods > li ul > li.donation {
               -webkit-box-orient: horizontal;
               -webkit-box-direction: normal;
               -webkit-flex-direction: row;
               -ms-flex-direction: row;
-              flex-direction: row; }
+              flex-direction: row;
+              -webkit-box-pack: start;
+              -webkit-justify-content: start;
+              -ms-flex-pack: start;
+              justify-content: start;
+              width: 50%; }
               .filter-result_goods > li ul > li.donation:after {
                 display: none; } }
           .filter-result_goods > li ul > li.donation > span:first-child {
             margin-right: 5px; }
           .filter-result_goods > li ul > li.donation i {
             color: #c0d1dd;
-            font-size: 13px; }
+            font-size: 13px;
+            margin-left: 0; }
             @media (max-width: 1250px) {
               .filter-result_goods > li ul > li.donation i {
                 margin-right: 1px; } }
+            @media (max-width: 480px) {
+              .filter-result_goods > li ul > li.donation i {
+                margin-left: 0; } }
         .filter-result_goods > li ul > li.status {
-          width: 150px;
+          width: 205px;
           letter-spacing: 0.5px; }
           @media (max-width: 767px) {
             .filter-result_goods > li ul > li.status {
@@ -10830,6 +10844,10 @@ button.close {
           @media (max-width: 991px) {
             .filter-result_goods > li ul > li.edit {
               width: 12.5%; } }
+          @media (max-width: 480px) {
+            .filter-result_goods > li ul > li.edit {
+              width: 25%;
+              padding-left: 15px; } }
         .filter-result_goods > li ul > li.delete {
           width: 64px;
           padding-right: 17px;
@@ -10837,6 +10855,10 @@ button.close {
           @media (max-width: 991px) {
             .filter-result_goods > li ul > li.delete {
               width: 12.5%; } }
+          @media (max-width: 480px) {
+            .filter-result_goods > li ul > li.delete {
+              width: 25%;
+              padding-left: 15px; } }
           .filter-result_goods > li ul > li.delete i {
             color: #89a1b3;
             font-size: 18px; }
