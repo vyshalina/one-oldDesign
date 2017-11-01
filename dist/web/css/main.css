@@ -10584,7 +10584,7 @@ button.close {
     display: -ms-flexbox;
     display: flex; }
     .filter form .search input, .filter form .price input {
-      font-family: "cormac-book", sans-serif;
+      font-family: "Cormac-Book", sans-serif;
       font-size: 14px;
       line-height: 20px;
       letter-spacing: 0;
@@ -10619,7 +10619,7 @@ button.close {
     text-align: center;
     margin: 0; }
     .filter-result .filter-add > a {
-      font-family: "cormac-book", sans-serif;
+      font-family: "Cormac-Book", sans-serif;
       font-size: 16px;
       line-height: 20px;
       letter-spacing: 0;
@@ -12940,7 +12940,7 @@ button.close {
         -ms-flex-direction: column;
         flex-direction: column; } }
     .booking-stap ul li {
-      font-family: "cormac-book", sans-serif;
+      font-family: "Cormac-Book", sans-serif;
       font-size: 22px;
       position: relative;
       padding-left: 58px;
@@ -13061,7 +13061,7 @@ button.close {
     opacity: 1;
     pointer-events: auto; }
   .booking-proc h3 {
-    font-family: "cormac-book", sans-serif;
+    font-family: "Cormac-Book", sans-serif;
     font-size: 34px;
     line-height: 42px;
     letter-spacing: 0;
@@ -13216,7 +13216,7 @@ button.close {
               display: inline-block;
               margin-right: 0; } }
         .booking-proc section .form-btn-group a {
-          font-family: "cormac-book", sans-serif;
+          font-family: "Cormac-Book", sans-serif;
           font-size: 16px;
           line-height: 1;
           letter-spacing: 0;
@@ -13297,7 +13297,7 @@ button.close {
       .booking-proc section .verification > .form-btn-group a {
         font-family: "Cormac-ExtraLight", sans-serif; }
       .booking-proc section .verification p.success {
-        font-family: "cormac-book", sans-serif;
+        font-family: "Cormac-Book", sans-serif;
         font-size: 22px;
         line-height: 32px;
         letter-spacing: -0.1px;
@@ -13321,7 +13321,7 @@ button.close {
           -ms-transform: translate(0, 0);
           transform: translate(0, 0); }
     .booking-proc section h4 {
-      font-family: "cormac-book", sans-serif;
+      font-family: "Cormac-Book", sans-serif;
       font-size: 22px;
       line-height: 32px;
       letter-spacing: 0.2px;
@@ -13358,7 +13358,7 @@ button.close {
               display: none; } }
         .booking-proc section ul.score li > div.summ {
           position: relative;
-          font-family: "cormac-book", sans-serif;
+          font-family: "Cormac-Book", sans-serif;
           font-size: 34px;
           line-height: 42px;
           letter-spacing: 0.2px; }
@@ -13372,7 +13372,7 @@ button.close {
             left: 1px;
             top: 14px; }
           .booking-proc section ul.score li > div.summ > p {
-            font-family: "cormac-book", sans-serif;
+            font-family: "Cormac-Book", sans-serif;
             font-size: 16px;
             line-height: 22px;
             letter-spacing: 0.2px;
@@ -13462,7 +13462,7 @@ button.close {
         .booking-proc section .btn-reserve span {
           display: block; } }
     .booking-proc section .info span {
-      font-family: "cormac-book", sans-serif;
+      font-family: "Cormac-Book", sans-serif;
       font-size: 22px;
       line-height: 32px;
       letter-spacing: -0.1px;
@@ -13547,13 +13547,13 @@ button.close {
     color: #fff;
     position: relative; }
     .intro-body header h1 {
-      font-family: "cormac-book", sans-serif;
+      font-family: "Cormac-Book", sans-serif;
       font-size: 42px;
       line-height: 56px;
       letter-spacing: 0px;
       color: #fff; }
     .intro-body header p {
-      font-family: "cormac-book", sans-serif;
+      font-family: "Cormac-Book", sans-serif;
       font-size: 26px;
       line-height: 32px;
       letter-spacing: 0px; }
@@ -13596,7 +13596,7 @@ button.close {
         position: relative; }
         .intro-body section p span {
           position: absolute;
-          font-family: "cormac-book", sans-serif;
+          font-family: "Cormac-Book", sans-serif;
           font-size: 18px;
           line-height: 1px;
           letter-spacing: 0px;
@@ -13661,7 +13661,7 @@ button.close {
   .promotion section p {
     color: #000;
     position: relative;
-    font-family: "cormac-book", sans-serif;
+    font-family: "Cormac-Book", sans-serif;
     font-size: 64px;
     line-height: 1;
     letter-spacing: 0px; }
@@ -14516,7 +14516,7 @@ button.close {
 .select-catalog {
   position: relative; }
   .select-catalog > a {
-    font-family: "cormac-book", sans-serif;
+    font-family: "Cormac-Book", sans-serif;
     font-size: 16px;
     line-height: 1;
     letter-spacing: 0.5px;
@@ -14635,7 +14635,7 @@ button.close {
         height: 12px;
         background: url(../img/checked.png) center no-repeat; }
   .filter-catalog .reset {
-    font-family: "cormac-book", sans-serif;
+    font-family: "Cormac-Book", sans-serif;
     font-size: 14px;
     line-height: 1;
     letter-spacing: 0;
@@ -14667,7 +14667,7 @@ button.close {
     width: 100%; }
     .filter-catalog-search input {
       padding: 22px 0 7px 7px;
-      font-family: "cormac-book", sans-serif;
+      font-family: "Cormac-Book", sans-serif;
       font-size: 28px;
       line-height: 1;
       letter-spacing: 0;
@@ -14771,7 +14771,7 @@ button.close {
       margin-top: 0;
       margin-bottom: 8px; }
       .product-catalog section h2 a, .list-catalog-products article section h2 a {
-        font-family: "cormac-book", sans-serif;
+        font-family: "Cormac-Book", sans-serif;
         font-size: 16px;
         line-height: 24px;
         letter-spacing: 0.5px;
@@ -14841,7 +14841,7 @@ button.close {
         letter-spacing: 0.5px;
         color: #000; }
     .product-catalog footer p, .list-catalog-products article footer p {
-      font-family: "cormac-book", sans-serif;
+      font-family: "Cormac-Book", sans-serif;
       font-size: 16px;
       line-height: 1;
       letter-spacing: 0.5px;
@@ -15085,7 +15085,7 @@ button.close {
             height: 30px;
             padding-right: 0; }
       .header .menu-top > ul > li a {
-        font-family: "cormac-book", sans-serif;
+        font-family: "Cormac-Book", sans-serif;
         font-size: 15px;
         line-height: 1;
         letter-spacing: 0.1px;
@@ -15148,7 +15148,7 @@ button.close {
         .header .menu-top > ul > li.active2 a:hover {
           border-color: #ffffff; }
       .header .menu-top > ul > li.active3 a {
-        font-family: "cormac-book", sans-serif; }
+        font-family: "Cormac-Book", sans-serif; }
 
 /*.header {
 	&-land {
@@ -15568,7 +15568,7 @@ button.close {
             text-align: center;
             padding-right: 0; } }
         .footer-info li:first-child p {
-          font-family: "cormac-book", sans-serif;
+          font-family: "Cormac-Book", sans-serif;
           font-size: 23px;
           line-height: 29px;
           letter-spacing: -0.5px;
@@ -16892,7 +16892,7 @@ a {
           -ms-flex-pack: justify;
           justify-content: space-between; } }
       .product-body > section ul.price li {
-        font-family: "cormac-book", sans-serif;
+        font-family: "Cormac-Book", sans-serif;
         font-size: 34px;
         line-height: 1;
         letter-spacing: 0.5px;
@@ -18784,7 +18784,7 @@ a {
       color: #fff;
       background: #4489ff; }
   .btn-reserve {
-    font-family: "cormac-book", sans-serif;
+    font-family: "Cormac-Book", sans-serif;
     font-size: 16px;
     line-height: 80px;
     letter-spacing: 0;
