@@ -16694,6 +16694,9 @@ a {
         width: 100%; } }
   .product-body header {
     padding-top: 29px; }
+    @media (max-width: 767px) {
+      .product-body header {
+        margin-bottom: 20px; } }
     .product-body header #galery_wrapp:after {
       content: '';
       display: table;
@@ -16785,6 +16788,18 @@ a {
       -ms-flex-align: center;
       align-items: center;
       margin-bottom: 43px; }
+      @media (max-width: 991px) {
+        .product-body > section ul.price {
+          -webkit-box-pack: justify;
+          -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+          justify-content: space-between; } }
+      @media (max-width: 480px) {
+        .product-body > section ul.price {
+          -webkit-box-pack: justify;
+          -webkit-justify-content: space-between;
+          -ms-flex-pack: justify;
+          justify-content: space-between; } }
       .product-body > section ul.price li {
         font-family: "cormac-book", sans-serif;
         font-size: 34px;
@@ -16792,14 +16807,28 @@ a {
         letter-spacing: 0.5px;
         color: #4489ff;
         margin-right: 28px; }
+        @media (max-width: 480px) {
+          .product-body > section ul.price li {
+            font-size: 24px; } }
         @media (max-width: 767px) {
           .product-body > section ul.price li {
             color: #000;
             font-family: "Cormac-ExtraLight", sans-serif; } }
+        @media (max-width: 480px) {
+          .product-body > section ul.price li {
+            font-size: 24px; } }
+        .product-body > section ul.price li:last-child {
+          margin-right: 0; }
         .product-body > section ul.price li i {
           color: #c6dbff;
           font-size: 26px;
           margin-right: 12px; }
+          @media (max-width: 991px) {
+            .product-body > section ul.price li i {
+              font-size: 22px; } }
+          @media (max-width: 480px) {
+            .product-body > section ul.price li i {
+              font-size: 22px; } }
     .product-body > section .btn-company {
       margin-bottom: 26px; }
       @media (max-width: 767px) {
@@ -16824,9 +16853,10 @@ a {
         -webkit-align-items: center;
         -ms-flex-align: center;
         align-items: center;
-        min-height: 100px;
         padding: 0 30px;
         margin: 10px 0;
+        min-height: 100px;
+        height: auto;
         background: white;
         -webkit-border-radius: 40px;
         border-radius: 40px;
@@ -16837,6 +16867,12 @@ a {
             background: transparent;
             -webkit-box-shadow: none;
             box-shadow: none; } }
+        @media (max-width: 480px) {
+          .product-body > section .btn-company .btn-reserve {
+            -webkit-flex-wrap: wrap;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            padding: 20px 0 0; } }
         @media (max-width: 480px) {
           .product-body > section .btn-company .btn-reserve:last-child {
             border-left: none;
@@ -16866,10 +16902,18 @@ a {
           .product-body > section .btn-company .btn-reserve .icon-wr i {
             color: #000; }
         .product-body > section .btn-company .btn-reserve figure {
+          -webkit-flex-shrink: 0;
+          -ms-flex-negative: 0;
+          flex-shrink: 0;
           margin-right: 36px; }
           @media (max-width: 991px) {
             .product-body > section .btn-company .btn-reserve figure {
               margin-right: 10px; } }
+          @media (max-width: 480px) {
+            .product-body > section .btn-company .btn-reserve figure {
+              width: 100%;
+              margin-right: 0;
+              margin-bottom: 20px; } }
           .product-body > section .btn-company .btn-reserve figure img {
             max-height: 60px; }
           .product-body > section .btn-company .btn-reserve figure.circle {
@@ -16878,6 +16922,9 @@ a {
             background-size: cover;
             width: 60px;
             height: 60px; }
+        @media (max-width: 480px) {
+          .product-body > section .btn-company .btn-reserve section {
+            width: 100%; } }
         .product-body > section .btn-company .btn-reserve section small {
           font-family: "HelveticaLight", sans-serif;
           font-size: 10px;

@@ -15,6 +15,7 @@
 		}
 		header {
 			padding-top: 29px;
+			@include respond-to(sm) {margin-bottom: 20px;}
 
 			#galery_wrapp {
 				&:after {
@@ -75,16 +76,25 @@
 			ul.price {
 				display: flex; align-items: center;
 				margin-bottom: 43px;
+				@include respond-to(md) {justify-content: space-between;}
+				@include respond-to(xs) {justify-content: space-between;}
+				
 				li {
 					@include font-type($CormacB, 34px, 1, 0.5px); color: $link-color;
 					margin-right: 28px;
-					@include respond-to(sm) {
-						color: #000; font-family: $CormacEL;
-					}
+					@include respond-to(xs) {font-size: 24px;}
+					@include respond-to(sm) {color: #000; font-family: $CormacEL;}
+					@include respond-to(xs) {font-size: 24px;}
+
+					&:last-child{margin-right: 0;}
 					i {
 						color: #c6dbff; font-size: 26px;
 						margin-right: 12px;
+
+						@include respond-to(md) {font-size: 22px;}
+						@include respond-to(xs) {font-size: 22px;}
 					}
+
 				}
 			}
 
@@ -95,14 +105,19 @@
 					border: 1px solid #edf3f6; border-radius: 5px;
 				}
 				.btn-reserve {
-					display: flex; flex-flow: row nowrap; align-items: center; min-height: 100px;
-					padding: 0 30px; margin: 10px 0;
+					display: flex; flex-flow: row nowrap; align-items: center; 
+
+					padding: 0 30px; margin: 10px 0; min-height: 100px; height: auto;
 					background: white; border-radius: 40px;
 					line-height: 1; position: relative;
-					@include respond-to(sm){
+					@include respond-to(sm) {
 						background: transparent; box-shadow: none;
-
 					}
+					@include respond-to(xs) {
+						flex-wrap: wrap;
+						padding: 20px 0 0;
+					}
+
 					&:last-child {
 						@include respond-to(xs) {
 							border-left: none; border-top: 2px solid #edf3f6; border-radius: 0; 
@@ -119,14 +134,18 @@
 						i {color: #000;}
 					}
 					figure {
+						flex-shrink: 0;
 						margin-right: 36px;
 						@include respond-to(md){margin-right: 10px;}
+						@include respond-to(xs) {width: 100%; margin-right: 0; margin-bottom: 20px;}
+
 						img {max-height: 60px;}
 						&.circle {
 							border-radius: 50%; background-size: cover; width: 60px; height: 60px;
 						}
 					}
 					section {
+						@include respond-to(xs) {width: 100%;}
 						small {
 							@include font-type($HelveticaL, 10px, 1, 1px); color: #79879e; text-transform: uppercase;
 							display: block; margin-bottom: 8px;
