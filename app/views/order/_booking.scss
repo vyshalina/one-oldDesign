@@ -1,3 +1,13 @@
+#select-charity {width: 700px;}
+#select-charity.popup-mobile {width: 100%;}
+
+@media (max-width: 991px) {
+	.popup-main {padding-top: 0 !important;}
+	.popup-main_body {height: 100% !important; width: 100% !important; padding: 50px 30px !important; overflow-y: scroll !important;}
+}
+
+
+
 .booking {
 	header.header {
 		box-shadow: none; border-bottom: 1px solid #e4e7ea;

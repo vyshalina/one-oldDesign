@@ -1,11 +1,12 @@
 .found {
 
 	&-about {
-		display: flex; @include  respond-to(md) {flex-direction: column;}
+		display: flex; @include respond-to(md) {flex-direction: column;}
 		@extend .neo-bg; padding: 20px 40px 40px 40px;
 
 		header {
 			font-family: $HelveticaL;
+			@include respond-to(md) {text-align: center;}
 
 			h3 {
 				color: #9b9b9b; font-size: 18px;
@@ -23,7 +24,10 @@
 
 			a.btn {
 				font-size: 16px; letter-spacing: 0.2px;
-				padding: 10px 30px; margin-top: 30px;
+				padding: 10px 30px; margin-top: 30px; max-width: 240px;
+				white-space: nowrap;
+			    overflow: hidden;
+			    text-overflow: ellipsis;
 			}
 		}
 

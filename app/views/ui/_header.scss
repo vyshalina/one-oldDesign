@@ -1,3 +1,13 @@
+
+@media (max-width: 991px) {
+	.header .menu-top > ul {
+		overflow-x: scroll !important;
+    	padding: 80px 0 !important;
+		right: -25px !important;
+		height: 100vh !important;
+		li {padding-right: 25px !important;}
+	}
+}
 // HEADER
 .header {
 	/////////////////////////////////////////////////////////////////////////////

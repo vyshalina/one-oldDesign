@@ -367,6 +367,7 @@ a {
 	min-width: 320px; overflow-x: hidden; padding-top: 65px;
 	background: #F8FAFD;
 	.land {overflow: hidden;}
+	&.hidden {display: none;}
 
 	.wr {
 		position: relative;
