@@ -444,15 +444,15 @@
 				display: block; margin: 10px 0 !important; padding: 0 !important; overflow: hidden;
 
 				ul {
-					display: flex; align-items: center; justify-content: space-between;
+					display: flex; align-items: center; justify-content: center;
 					@include respond-to(md) {flex-wrap: wrap; padding-bottom: 20px;}
 					@include respond-to(xs) {padding-bottom: 20px;}
 					& > li {
 						display: flex; align-items: center; justify-content: center;
 						font-family: $HelveticaL; font-size: 16px; letter-spacing: 0.2px;
-						position: relative; height: auto; padding: 0 13px;
+						position: relative; height: auto;
 						box-sizing: border-box;
-						@include respond-to(md) {width: 25%; padding-bottom: 20px!important;}
+						@include respond-to(md) {width: 25%;}
 						@include respond-to(xs) {
 							justify-content: start;
 							width: 50%; padding-left: 15px;
@@ -471,24 +471,30 @@
 						}
 
 						&.img {
-							width: 80px; margin-right: 20px;
+							justify-content: start;
+							width: 10%; padding-right: 20px;
 							@include respond-to(md) {margin-bottom: 20px;}
+							@include respond-to(sm) {width: 100px;}
 						}
 						&.name {
 							justify-content: start;
 							@include font-type ($CormacEL, 22px, 32px, 0); color: #000;
-							width: 420px;
-							@include respond-to(lg) {width: 320px;}
+							width: 22%; padding-right: 30px;
+
 							@include respond-to(md) {padding-left: 15px; width: calc(100% - 100px);}
 							
 						}
 						&.view {
 							flex-direction: column; align-items: start; justify-content: center;
 							@include font-type ($HelveticaR, 16px, 24px, 0.4px);
-							width: 314px; padding-top: 4px; padding-left: 35px;
-							@include respond-to(lg) {padding-left: 30px;}
-							//@include respond-to(md) {width: calc(50% - 40px);}
-							@include respond-to(md) {width: 100%; padding-left: 15px;}
+							width: 19%; padding-top: 4px;
+							
+							@include respond-to(md) {
+								width: 100%; padding-left: 15px; padding-bottom: 30px;
+							}
+							&:after {
+								@include respond-to(md) {display: none;}
+							} 
 							.date {
 								display: flex; justify-content: space-between;
 								width: 168px;
@@ -498,17 +504,27 @@
 							}
 						}
 
+						&:nth-child(4){
+							width: 15%;
+							@include respond-to(md) {width: 25%;}
+							@include respond-to(xs) {width: 100%;}
+						}
+
 						&.donation {
 							flex-direction: row; display: flex; justify-content: center;
-							font-size: 12px; padding-right: 12px; width: 19%;
-							@include respond-to(lg) {flex-direction: column;}
+							font-size: 12px; width: 15%;
+							
 							@include respond-to(md) {width: 25%;}
-							@include respond-to(xs) {flex-direction: row; justify-content: start; width: 50%; &:after {display: none;}}
+							@include respond-to(sm) {flex-direction: column;}
+							@include respond-to(xs) { font-size: 16px; flex-direction: row; justify-content: start; width: 100%;}
 							& > span {
 								&:first-child {
 									margin-right: 5px;
+									@include respond-to(sm) {margin-right: 0; margin-bottom: 5px;}
+									@include respond-to(xs) {margin-bottom: 0; margin-right: 15px;}
 								}
 							}
+							.rub {line-height: 12px;}
 							i {
 								color: #c0d1dd; font-size: 13px; margin-left: 0;
 								@media (max-width: 1250px) {
@@ -518,20 +534,32 @@
 							}
 						}
 						&.status {
-							width: 205px; letter-spacing: 0.5px;
-							@include respond-to(sm) {width: 25%;}
-							@include respond-to(xs) {width: 50%;}
+							width: 13%; letter-spacing: 0.5px;
+
+							@include respond-to(md) {width: 30%; font-size: 14px;}
+							@include respond-to(xs) {width: 100%;}
 						}
+
+						&:nth-child(4), &.donation, &.status {
+							@include respond-to(xs) {margin-bottom: 25px;}
+							&:after {
+								@include respond-to(xs) {
+									top: auto; right: 5%; bottom: -8px; width: 90%; height: 1px; 
+								}
+							}
+						}
+
 						&.edit {
-							width: 83px; padding-left: 0; padding-top: 3px;
-							@include respond-to(md) {width: 12.5%;}
-							@include respond-to(xs){width: 25%; padding-left: 15px;}
+							width: 3%; padding-left: 10px; padding-right: 5px;
+
+							@include respond-to(md) {width: 10%;}
+							@include respond-to(xs){width: 50%; justify-content: center;}
 							
 						}
 						&.delete {
-							width: 64px; padding-right: 17px; padding-top: 4px;
-							@include respond-to(md) {width: 12.5%;}
-							@include respond-to(xs){width: 25%; padding-left: 15px;}
+							width: 3%; padding-right: 10px; padding-left: 5px;
+							@include respond-to(md) {width: 10%;}
+							@include respond-to(xs){width: 50%; justify-content: center;}
 							
 							i {color: #89a1b3; font-size: 18px;}
 						}
