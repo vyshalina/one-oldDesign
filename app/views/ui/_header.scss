@@ -2,10 +2,10 @@
 @media (max-width: 991px) {
 	.header .menu-top > ul {
 		overflow-x: scroll !important;
-    	padding: 80px 0 !important;
-		right: -25px !important;
-		height: 100vh !important;
-		li {padding-right: 25px !important;}
+    	//padding: 80px 0 !important;
+		//right: -25px !important;
+		//height: 100vh !important;
+		//li {padding-right: 25px !important;}
 	}
 }
 // HEADER
@@ -50,13 +50,13 @@
 				background: #fff; box-shadow: 0 1px 10px 0 rgba(0, 0, 0, 0.08);
 				transition: .4s ease-out;
 				@include respond-to(md) {
-					display: block;
+					display: block; width: 150%; left: 50%;
 				}
 			}
 
 			&.active {
 				&:before {
-					transform: translateX(0);
+					transform: translateX(-50%);
 				}
 			}
 			
@@ -95,6 +95,10 @@
 			& > ul {
 				margin-top: 24px; padding-right: 15px; left: 0; right: 0; position: relative; z-index: 4;
 				transition: max-height .2s cubic-bezier(.42,.6,.61,.42);
+				@include respond-to(lg) {padding-right: 0;}
+				@include respond-to(md) {
+					height: auto; max-height: 100vh; padding: 80px 0;
+				}
 
 				@include respond-to(md) {
 					padding-top: 75px; padding-bottom: 20px;
@@ -120,13 +124,22 @@
 
 				& > li {
 					margin-left: 41px; 
+					@include respond-to(lg) {margin-left: 27px;}
 					@include respond-to(md) {
 						text-align: center; 
 						margin: 0 0 25px 0; width: auto;
 					}
+					&:first-child {
+						margin-left: 0;
+					}
+					&:last-child {
+						margin-bottom: 0;
+						@include respond-to(md) {padding-bottom: 30px;}
+					}
 					&.drop-down {
 						position: relative;
 						& > a {
+							white-space: nowrap;
 							padding-right: 0;
 							&:before, &:after {display: none;}
 							span {
@@ -148,12 +161,7 @@
 							}
 						}	
 					}
-					&:first-child {
-						margin-left: 0;
-					}
-					&:last-child {
-						margin-bottom: 0;
-					}
+
 					
 					a {
 						@include font-type($CormacB, 15px, 1, 0.1px); color: #000;
