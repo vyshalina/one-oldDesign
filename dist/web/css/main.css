@@ -16633,10 +16633,8 @@ a {
         display: block;
         width: 100%;
         margin-bottom: 25px; } }
-    .market .goods > li a {
-      display: block; }
-      .market .goods > li a:hover article h2 {
-        color: #4489ff; }
+    .market .goods > li a:hover article h2 {
+      color: #4489ff; }
     .market .goods > li figure {
       position: relative; }
       @media (max-width: 480px) {
@@ -16644,83 +16642,74 @@ a {
           width: 100%; } }
       .market .goods > li figure img {
         width: 100%; }
-      .market .goods > li figure figcaption {
-        position: absolute;
-        right: 10px;
-        top: 10px; }
-        @media (max-width: 480px) {
-          .market .goods > li figure figcaption {
-            display: none; } }
-    .market .goods > li article {
-      padding: 20px; }
+    @media (max-width: 480px) {
+      .market .goods > li article {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: vertical;
+        -webkit-box-direction: normal;
+        -webkit-flex-direction: column;
+        -ms-flex-direction: column;
+        flex-direction: column;
+        position: relative;
+        width: 100%;
+        padding-right: 5px; } }
+    .market .goods > li article h2 {
+      font-family: "Cormac-ExtraLight", sans-serif;
+      font-size: 18px;
+      line-height: 26px;
+      letter-spacing: -0.5px;
+      color: #000;
+      color: #000;
+      min-height: 60px;
+      margin-bottom: 10px; }
+    .market .goods > li article div {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-pack: justify;
+      -webkit-justify-content: space-between;
+      -ms-flex-pack: justify;
+      justify-content: space-between; }
       @media (max-width: 480px) {
-        .market .goods > li article {
-          display: -webkit-box;
-          display: -webkit-flex;
-          display: -ms-flexbox;
-          display: flex;
+        .market .goods > li article div {
           -webkit-box-orient: vertical;
           -webkit-box-direction: normal;
           -webkit-flex-direction: column;
           -ms-flex-direction: column;
           flex-direction: column;
-          position: relative;
-          width: 100%;
-          padding-right: 5px; } }
-      .market .goods > li article h2 {
-        font-family: "Cormac-ExtraLight", sans-serif;
-        font-size: 18px;
-        line-height: 26px;
-        letter-spacing: -0.5px;
-        color: #000;
-        color: #000;
-        min-height: 60px;
-        margin-bottom: 10px; }
-      .market .goods > li article div {
-        display: -webkit-box;
-        display: -webkit-flex;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-pack: justify;
-        -webkit-justify-content: space-between;
-        -ms-flex-pack: justify;
-        justify-content: space-between; }
-        @media (max-width: 480px) {
-          .market .goods > li article div {
-            -webkit-box-orient: vertical;
-            -webkit-box-direction: normal;
-            -webkit-flex-direction: column;
-            -ms-flex-direction: column;
-            flex-direction: column;
-            height: 100%; } }
-        .market .goods > li article div p {
+          height: 100%; } }
+      .market .goods > li article div p {
+        font-family: "HelveticaLight", sans-serif;
+        font-size: 10px;
+        line-height: 16px;
+        letter-spacing: 0.8px;
+        color: #8d8d8d;
+        text-transform: uppercase; }
+        .market .goods > li article div p span {
           font-family: "HelveticaLight", sans-serif;
-          font-size: 10px;
+          font-size: 12px;
           line-height: 16px;
-          letter-spacing: 0.8px;
-          color: #8d8d8d;
-          text-transform: uppercase; }
-          .market .goods > li article div p span {
-            font-family: "HelveticaLight", sans-serif;
-            font-size: 12px;
-            line-height: 16px;
-            letter-spacing: 0.5px;
-            display: block; }
-        .market .goods > li article div > span {
-          font-family: "Cormac-ExtraLight", sans-serif;
-          font-size: 18px;
-          line-height: 1;
-          letter-spacing: -0.5px;
-          color: #000; }
-      .market .goods > li article .icon {
-        margin-right: 10px; }
-      .market .goods > li article .price {
+          letter-spacing: 0.5px;
+          display: block; }
+      .market .goods > li article div > span {
         font-family: "Cormac-ExtraLight", sans-serif;
         font-size: 18px;
         line-height: 1;
         letter-spacing: -0.5px;
-        color: #000;
-        padding-top: 20px; }
+        color: #000; }
+    .market .goods > li article .icon {
+      margin-right: 10px; }
+    .market .goods > li article .price {
+      font-family: "Cormac-ExtraLight", sans-serif;
+      font-size: 18px;
+      line-height: 1;
+      letter-spacing: -0.5px;
+      color: #000;
+      padding-top: 20px; }
     .market .goods > li .like {
       display: none;
       width: 45px;
@@ -16745,6 +16734,136 @@ a {
           display: none; }
         .market .goods > li .like i.icon-heart-empty {
           display: block; } }
+
+.preview {
+  background: #fff; }
+  .preview header {
+    margin-bottom: 5px; }
+    .preview header a:hover figcaption {
+      opacity: 1; }
+    .preview header figure {
+      position: relative; }
+      .preview header figure img {
+        max-width: 100%; }
+      .preview header figure figcaption {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(255, 255, 255, 0.5);
+        opacity: 0;
+        -webkit-transition: .4s all ease;
+        transition: .4s all ease; }
+        .preview header figure figcaption span {
+          position: absolute; }
+          .preview header figure figcaption span.favorites {
+            text-align: center;
+            font-family: "Cormac-ExtraLight", sans-serif;
+            font-size: 16px;
+            line-height: 1;
+            letter-spacing: 0.5px;
+            color: #fff;
+            width: 78px;
+            height: 68px;
+            padding-top: 20px;
+            padding-left: 7px;
+            top: 50%;
+            margin-top: -34px;
+            left: 50%;
+            margin-left: -39px;
+            background: url(../img/heart.png); }
+  .preview section {
+    padding: 0 17px; }
+    .preview section h2 {
+      line-height: 14px;
+      min-height: 52px !important;
+      margin-top: 0;
+      margin-bottom: 8px; }
+      .preview section h2 a {
+        font-family: "Cormac-Book", sans-serif;
+        font-size: 16px;
+        line-height: 24px;
+        letter-spacing: 0.5px;
+        color: #000; }
+    .preview section p {
+      font-family: "HelveticaRegular", sans-serif;
+      font-size: 12px;
+      line-height: 16px;
+      letter-spacing: 0.5px;
+      color: #000;
+      margin-bottom: 5px; }
+      .preview section p span {
+        margin-left: 10px; }
+    .preview section > ul {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-flex-wrap: wrap;
+      -ms-flex-wrap: wrap;
+      flex-wrap: wrap; }
+      .preview section > ul li {
+        display: inline-block;
+        padding: 0 5px;
+        margin-right: 5px;
+        background: #efefef;
+        -webkit-border-radius: 9px;
+        border-radius: 9px; }
+        .preview section > ul li:last-child {
+          margin-right: 0; }
+        .preview section > ul li a {
+          color: #000;
+          font-size: 12px; }
+  .preview footer {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    padding: 6px 20px 15px 20px; }
+    .preview footer a figure {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -webkit-align-items: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .preview footer a figure span {
+        width: 31px;
+        height: 31px;
+        margin-right: 10px;
+        -webkit-border-radius: 50%;
+        border-radius: 50%;
+        background-position: center;
+        background-repeat: none; }
+      .preview footer a figure figcaption {
+        font-family: "Cormac-Book", sans-serif;
+        font-size: 12px;
+        line-height: 12px;
+        letter-spacing: 0.5px;
+        color: #000;
+        width: 100px;
+        height: 12px;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis; }
+    .preview footer p {
+      font-family: "Cormac-Book", sans-serif;
+      font-size: 16px;
+      line-height: 1;
+      letter-spacing: 0.5px;
+      color: #000;
+      margin-bottom: 0; }
 
 .images img {
   margin: 0 !important; }
