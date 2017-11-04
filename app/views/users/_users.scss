@@ -478,7 +478,7 @@
 						}
 						&.name {
 							justify-content: start;
-							@include font-type ($CormacEL, 22px, 32px, 0); color: #000;
+							@include font-type ($CormacB, 18px, 22px, 0); color: #000;
 							width: 22%; padding-right: 30px;
 
 							@include respond-to(md) {padding-left: 15px; width: calc(100% - 100px);}
